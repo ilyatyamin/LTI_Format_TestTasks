@@ -1,8 +1,11 @@
 import json
-from questions_classes import *
+from CourseWork.MultiplyChoice.QuestionEncoder import QuestionEncoder
 
-with open("/Users/mrshrimp.it/Downloads/1107748_2_choice-3.step") as p:
-    print(p)
+from CourseWork.MultiplyChoice.MultipleChoiceQuestion import MultiplyChoiceQuestion
 
-quest1 = MultiplyChoiceQuestion(True, True, [MultiplyChoiceAnswer("Test Quiestion", False, "No")], True, "", "", "")
-print(json.dumps(quest1, default=lambda o: o.__dict__))
+quest1 = MultiplyChoiceQuestion()
+quest1.parseOneQuestionFromMoodleXML("/Users/mrshrimp.it/Documents/ВШЭ учеба/2 курс/LTI_Format_TestTasks/examples of files/MultipleChoice_Moodle.xml")
+
+
+quest1.saveToFormat("new_file.json")
+
