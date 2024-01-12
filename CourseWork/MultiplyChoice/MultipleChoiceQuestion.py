@@ -9,10 +9,11 @@ class MultiplyChoiceQuestion:
     """
         Class that introduced answer with one or multiply choice answer
     """
+
     def __init__(self):
         # Obligatory fields
-        self.question_id = None #
-        self.question_name = None #
+        self.question_id = None  #
+        self.question_name = None  #
         self.question_text: dict = {}
         self.is_single_answer = None
         self.text_style = None
@@ -24,9 +25,9 @@ class MultiplyChoiceQuestion:
         self.defaultLocale = None
         self.creation_time = None
         self.shuffle_answer = None
-        self.corrected_feedback:dict = {}
-        self.particular_corrected_feedback:dict = {}
-        self.incorrect_feedback:dict = {}
+        self.corrected_feedback: dict = {}
+        self.particular_corrected_feedback: dict = {}
+        self.incorrect_feedback: dict = {}
         self.default_grade = None
         self.penalty = None
         self.hidden = None
@@ -39,10 +40,10 @@ class MultiplyChoiceQuestion:
         self.has_review = None
         self.preserve_order = None
         self.output_format = None
-        self.general_feedback: dict = {} #
+        self.general_feedback: dict = {}  #
         self.course_id = None
 
-    def __strip_file(self, path_to_file : str):
+    def __strip_file(self, path_to_file: str):
         lines = []
         with open(path_to_file, 'r+') as file:
             for line in file:
@@ -54,7 +55,7 @@ class MultiplyChoiceQuestion:
             file.truncate()
             file.close()
 
-    def __encoder(self, dictionary : dict):
+    def __encoder(self, dictionary: dict):
         values_to_delete = []
         for item, value in dictionary.items():
             if value is None:
@@ -63,6 +64,9 @@ class MultiplyChoiceQuestion:
             dictionary.pop(value)
         return dictionary
 
+    def __open_file(self, path: str) -> list[str]:
+        with open(path, encoding='utf8') as file:
+            return file.readlines()
 
     def parseOneQuestionFromMoodleXML(self, path_to_file: str):
         self.__strip_file(path_to_file)
@@ -84,7 +88,7 @@ class MultiplyChoiceQuestion:
                     break
             self.question_id = "".join([x for x in line_with_num if x.isdigit()])
         else:
-            self.question_id = self.__default_id
+            self.question_id = "0"
 
         # Parsing question's text and question's text style
         tag_text = parsed_file.find("questiontext")
@@ -215,11 +219,67 @@ class MultiplyChoiceQuestion:
 
                 self.options.append(result)
 
+    def parseOneQuestionMoodleCSV(self, file_name: str, idx: int = 1):
+        """
+        Parse one question using Moodle CSV format
+        Obligatory requirement is headers in first row
+        If they are not saved in first row, method throws an exception
+        """
+        lines = [x.split(',') for x in self.__open_file(file_name) if not(x.isspace())]
+
+        # Check structure
+        tags_line = lines[0]
+        if len(lines) < idx:
+            raise Exception("Incorrect index")
+        working_line = lines[idx]
+
+        if "questionname" in tags_line:
+            # Checking question_name
+            self.question_name = working_line[tags_line.index("questionname")]
+            self.question_text = working_line[tags_line.index("questiontext")]
+
+            answers = [working_line[x].strip() for x in range(len(tags_line)) if "Answer " in tags_line[x]]
+            # Checking options
+            for letter_idx in range(65, 91): # ['A', 'Z']
+                if chr(letter_idx) in tags_line:
+                    option = MultiplyChoiceAnswer()
+                    idx = tags_line.index(chr(letter_idx))
+
+                    # In CSV there are no format, so we put it "text"
+                    option.text['format'] = "text"
+                    option.text['text'] = working_line[idx]
+
+                    # Checking is it correct?
+                    if chr(letter_idx) in answers:
+                        option.is_correct = 1
+                    else:
+                        option.is_correct = 0
+                    self.options.append(option)
+
+            # Checking answer_numbering
+            if "answernumbering" in tags_line:
+                self.answer_numbering = working_line[tags_line.index("answernumbering")]
+
+            # Checking correctfeedback
+            if "correctfeedback" in tags_line:
+                self.corrected_feedback['format'] = "text"
+                self.corrected_feedback['text'] = working_line[tags_line.index("correctfeedback")]
+            if "partiallycorrectfeedback" in tags_line:
+                self.particular_corrected_feedback['format'] = "text"
+                self.particular_corrected_feedback['text'] = working_line[tags_line.index("partiallycorrectfeedback")]
+            if "incorrectfeedback" in tags_line:
+                self.incorrect_feedback['format'] = "text"
+                self.incorrect_feedback['text'] = working_line[tags_line.index("incorrectfeedback")]
+
+            # Checking default_mark
+            if "defaultmark" in tags_line:
+                self.default_grade = working_line[tags_line.index("defaultmark")]
+        else:
+            raise Exception("Structure is not correct")
+
+
+
     def saveToFormat(self, file_name: str):
         with open(file_name, 'w', encoding='utf-8') as f:
             # Serialize the data and write it to the file
-            json.dump(self, f, default= lambda o: self.__encoder(o.__dict__), ensure_ascii=False)
-
-
-
-
+            json.dump(self, f, default=lambda o: self.__encoder(o.__dict__), ensure_ascii=False)
