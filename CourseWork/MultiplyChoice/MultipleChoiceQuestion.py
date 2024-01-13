@@ -1,15 +1,15 @@
-import xml.etree.ElementTree as ET
+# pip install python-docx
 
-from CourseWork.MultiplyChoice.MultiplyChoiceAnswer import MultiplyChoiceAnswer
-from CourseWork.MultiplyChoice.QuestionEncoder import QuestionEncoder
 import json
+import xml.etree.ElementTree as ET
+from docx import Document
+from CourseWork.MultiplyChoice.MultiplyChoiceAnswer import MultiplyChoiceAnswer
 
 
 class MultiplyChoiceQuestion:
     """
-        Class that introduced answer with one or multiply choice answer
+    Class that introduced answer with one or multiply choice answer
     """
-
     def __init__(self):
         # Obligatory fields
         self.question_id = None  #
@@ -42,6 +42,8 @@ class MultiplyChoiceQuestion:
         self.output_format = None
         self.general_feedback: dict = {}  #
         self.course_id = None
+        self.tags: list = []
+        self.prompts: list = []
 
     def __strip_file(self, path_to_file: str):
         lines = []
@@ -225,7 +227,7 @@ class MultiplyChoiceQuestion:
         Obligatory requirement is headers in first row
         If they are not saved in first row, method throws an exception
         """
-        lines = [x.split(',') for x in self.__open_file(file_name) if not(x.isspace())]
+        lines = [x.split(',') for x in self.__open_file(file_name) if not (x.isspace())]
 
         # Check structure
         tags_line = lines[0]
@@ -240,7 +242,7 @@ class MultiplyChoiceQuestion:
 
             answers = [working_line[x].strip() for x in range(len(tags_line)) if "Answer " in tags_line[x]]
             # Checking options
-            for letter_idx in range(65, 91): # ['A', 'Z']
+            for letter_idx in range(65, 91):  # ['A', 'Z']
                 if chr(letter_idx) in tags_line:
                     option = MultiplyChoiceAnswer()
                     idx = tags_line.index(chr(letter_idx))
@@ -277,6 +279,87 @@ class MultiplyChoiceQuestion:
         else:
             raise Exception("Structure is not correct")
 
+    def parseOneQuestionMoodleDocx(self, path_to_word: str, idx=0):
+        """
+        Parse one question from Moodle Docx Format
+        """
+
+        dict_variables = {'Штраф за каждую неправильную попытку:': "penalty", 'ID-номер:': "question_id",
+                          'Случайный порядок ответов': "shuffle_answer", 'Балл по умолчанию:': "default_grade",
+                          'Нумеровать варианты ответов?': "answer_numbering"}
+
+        # Divide all variables that can be shown in table for 3 groups: strings, lists and dictionaries (often,
+        # format and text)
+        dict_noniterable_footer_variables = {
+            'ID-номер:': "question_id",
+            'Для любого частично правильного ответа:': "particular_corrected_feedback",
+            'Для любого правильного ответа:': "corrected_feedback",
+            'Для любого неправильного ответа:': "incorrect_feedback"}
+        dict_list_footer_variables = {'Теги:': "tags", 'Показать отзыв для выбранных ответов. (Подсказка ):': "",
+                                      'Подсказка :': "prompts", }
+        dict_dict_footer_variables = {'Общий отзыв к вопросу:': "general_feedback"}
+
+        doc = Document(path_to_word)
+        tables_in_doc = doc.tables
+        need_table = tables_in_doc[idx]
+
+        # self.question_name - NEED TO DO
+
+        # In first row cell - name
+        self.question_text['format'] = "text"  # in this format it is not required
+        self.question_text['text'] = need_table.rows[0].cells[0].text
+
+        # Find index of row with answer's header
+        idx_answers_headers = -1
+        for item in range(len(need_table.rows)):
+            if any(x.text == '#' for x in need_table.rows[item].cells):
+                idx_answers_headers = item
+                break
+
+        # All params that higher than answers
+        for row in need_table.rows[1:idx_answers_headers]:
+            if row.cells[0].text in dict_variables:
+                setattr(self, dict_variables[row.cells[0].text], row.cells[-1].text)
+
+        # Find end on answers
+        # Indication: first cell in row is empty (in other rows first row is style of numering (A, B, C))
+        end_of_answers = -1
+        for idx in range(idx_answers_headers + 1, len(need_table.rows)):
+            if need_table.rows[idx].cells[-1].text.isspace():
+                end_of_answers = idx
+                break
+
+        # Analyzing all answers
+        for idx in range(idx_answers_headers + 1, end_of_answers):
+            option = MultiplyChoiceAnswer()
+            option.text['format'] = 'text'  # default
+            option.text['text'] = need_table.rows[idx].cells[1].text
+            option.feedback = need_table.rows[idx].cells[2].text
+            option.points = need_table.rows[idx].cells[3].text
+            if option.points != 0:
+                option.is_correct = "1"
+            else:
+                option.is_correct = "0"
+            self.options.append(option)
+
+        for ind in range(end_of_answers, len(need_table.rows) - 1):
+            name = ''.join([x for x in need_table.rows[ind].cells[1].text if not(x.isdigit())])
+            if name in dict_noniterable_footer_variables.keys():
+                setattr(self, dict_noniterable_footer_variables[name],
+                        need_table.rows[ind].cells[2].text)
+            elif name in dict_list_footer_variables.keys():
+                alias = dict_list_footer_variables[name]
+                if alias == "tags":
+                    self.tags.append(need_table.rows[ind].cells[2].text)
+                elif alias == "is_needed_feedback":
+                    self.is_needed_feedback = 1
+                elif alias == "prompts":
+                    self.prompts.append(need_table.rows[ind].cells[2].text)
+            elif name in dict_dict_footer_variables.keys():
+                alias = dict_dict_footer_variables[name]
+                if alias == "general_feedback":
+                    self.general_feedback['format'] = 'text'
+                    self.general_feedback['text'] = need_table.rows[ind].cells[2].text
 
 
     def saveToFormat(self, file_name: str):
