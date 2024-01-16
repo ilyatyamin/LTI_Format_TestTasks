@@ -1,19 +1,24 @@
-import json
-from CourseWork.MultiplyChoice.QuestionEncoder import QuestionEncoder
+from CourseWork.SystemManager import *
 
-from CourseWork.MultiplyChoice.MultipleChoiceQuestion import MultiplyChoiceQuestion
+manager = MultipleChoiceManager()
 
-paths = ["../examples of files/MultipleChoice_Moodle.xml",
-         "../examples of files/MoodleCSV_example3.csv",
-         "../examples of files/moodle_word2010_v2.docx"]
-question1 = MultiplyChoiceQuestion()
-question1.parseOneQuestionFromMoodleXML(paths[0])
-question1.saveToFormat("fromMoodleXml.json")
+# Moodle XML [bank]
+manager.write_to_file("moodle_xml_bank.json", manager.load_bank_question('/Users/mrshrimp.it/Documents/ВШЭ учеба/2 курс/LTI_Format_TestTasks/examples of files/moodle_xml.xml', SystemManager.MultipleChoiceEnum.MoodleXml))
 
-question2 = MultiplyChoiceQuestion()
-question2.parseOneQuestionMoodleCSV(paths[1])
-question2.saveToFormat("fromMoodleCSV.json")
+# Moodle XML [one]
+manager.write_to_file('moodle_xml_one.json', manager.load_one_question('/Users/mrshrimp.it/Documents/ВШЭ учеба/2 курс/LTI_Format_TestTasks/examples of files/MultipleChoice_Moodle.xml', SystemManager.MultipleChoiceEnum.MoodleXml))
 
-question2 = MultiplyChoiceQuestion()
-question2.parseOneQuestionMoodleDocx(paths[2])
-question2.saveToFormat("fromMoodleWordFirst.json")
+# Moodle Word [bank]
+manager.write_to_file('moodle_word_bank.json', manager.load_bank_question('/Users/mrshrimp.it/Documents/ВШЭ учеба/2 курс/LTI_Format_TestTasks/examples of files/moodle_word2010_v2.docx', SystemManager.MultipleChoiceEnum.MoodleWord))
+
+# Moodle Word [one]
+manager.write_to_file('moodle_word_one.json', manager.load_one_question('/Users/mrshrimp.it/Documents/ВШЭ учеба/2 курс/LTI_Format_TestTasks/examples of files/moodle_word2010_v2.docx', SystemManager.MultipleChoiceEnum.MoodleWord))
+
+# Moodle CSV [bank]
+manager.write_to_file('moodle_csv_bank.json', manager.load_bank_question('/Users/mrshrimp.it/Documents/ВШЭ учеба/2 курс/LTI_Format_TestTasks/examples of files/MoodleCSV_example3.csv', SystemManager.MultipleChoiceEnum.MoodleCSV))
+
+# Stepik [one]
+manager.write_to_file('stepik_bank.json', manager.load_one_question('/Users/mrshrimp.it/Downloads/1107748_2_choice-7.step', SystemManager.MultipleChoiceEnum.StepikStep))
+
+# TestMoz Word [one], банк еще делаю
+manager.write_to_file('testmoz_word.json', manager.load_one_question('/Users/mrshrimp.it/Desktop/testmoz_doc.docx', SystemManager.MultipleChoiceEnum.TestMozWord))

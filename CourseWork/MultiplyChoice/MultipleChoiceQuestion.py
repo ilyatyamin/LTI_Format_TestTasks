@@ -1,8 +1,7 @@
 # pip install python-docx
+# pip install PyPDF2
 
-import json
-import xml.etree.ElementTree as ET
-from docx import Document
+import xml.etree.ElementTree as ElTree
 from CourseWork.MultiplyChoice.MultiplyChoiceAnswer import MultiplyChoiceAnswer
 
 
@@ -10,8 +9,10 @@ class MultiplyChoiceQuestion:
     """
     Class that introduced answer with one or multiply choice answer
     """
+
     def __init__(self):
         # Obligatory fields
+        self.question_type = "multiply_choice"
         self.question_id = None  #
         self.question_name = None  #
         self.question_text: dict = {}
@@ -35,62 +36,39 @@ class MultiplyChoiceQuestion:
         self.show_standard_instruction = None
         self.show_num_correct = None
         self.video_link = None
-        self.subtitle_files = None
+        self.subtitle_files: list = []
         self.is_deprecated = None
         self.has_review = None
         self.preserve_order = None
         self.output_format = None
         self.general_feedback: dict = {}  #
         self.course_id = None
+        self.creation_time = None
         self.tags: list = []
         self.prompts: list = []
 
-    def __strip_file(self, path_to_file: str):
-        lines = []
-        with open(path_to_file, 'r+') as file:
-            for line in file:
-                if not line.isspace():
-                    lines.append(line)
-        with open(path_to_file, 'r+') as file:
-            for line in lines:
-                file.write(line)
-            file.truncate()
-            file.close()
+    @staticmethod
+    def __converter_to_bool(option):
+        if isinstance(option, bool):
+            return option
+        if isinstance(option, str):
+            stripped_option = option.strip()
+            if stripped_option == "true" or stripped_option == "1":
+                return True
+            if stripped_option == "false" or stripped_option == "0":
+                return False
+        if isinstance(option, int):
+            if option == 0:
+                return False
+            if option == 1:
+                return True
+        return option
 
-    def __encoder(self, dictionary: dict):
-        values_to_delete = []
-        for item, value in dictionary.items():
-            if value is None:
-                values_to_delete.append(item)
-        for value in values_to_delete:
-            dictionary.pop(value)
-        return dictionary
-
-    def __open_file(self, path: str) -> list[str]:
-        with open(path, encoding='utf8') as file:
-            return file.readlines()
-
-    def parseOneQuestionFromMoodleXML(self, path_to_file: str):
-        self.__strip_file(path_to_file)
-
-        parsed_file = ET.parse(path_to_file).getroot()
-        file_as_txt = open(path_to_file).readlines()
-
+    def parse_one_question_from_moodle_xml(self, parsed_file: ElTree.Element):
         if parsed_file.tag != 'question' or parsed_file.attrib['type'] != 'multichoice':
             raise Exception("Not Multiply Choice Question.")
 
         self.question_name = parsed_file.find("name").find("text").text
-
-        # Parsing question id (if file contains it)
-        if any("<!-- question:" in x for x in file_as_txt):
-            line_with_num = None
-            for line in file_as_txt:
-                if "<!-- question:" in line:
-                    line_with_num = line
-                    break
-            self.question_id = "".join([x for x in line_with_num if x.isdigit()])
-        else:
-            self.question_id = "0"
 
         # Parsing question's text and question's text style
         tag_text = parsed_file.find("questiontext")
@@ -221,14 +199,12 @@ class MultiplyChoiceQuestion:
 
                 self.options.append(result)
 
-    def parseOneQuestionMoodleCSV(self, file_name: str, idx: int = 1):
+    def parse_one_question_moodle_csv(self, lines: list[list[str]], idx: int = 1):
         """
         Parse one question using Moodle CSV format
         Obligatory requirement is headers in first row
         If they are not saved in first row, method throws an exception
         """
-        lines = [x.split(',') for x in self.__open_file(file_name) if not (x.isspace())]
-
         # Check structure
         tags_line = lines[0]
         if len(lines) < idx:
@@ -279,7 +255,7 @@ class MultiplyChoiceQuestion:
         else:
             raise Exception("Structure is not correct")
 
-    def parseOneQuestionMoodleDocx(self, path_to_word: str, idx=0):
+    def parse_one_question_moodle_docx(self, doc, idx=0):
         """
         Parse one question from Moodle Docx Format
         """
@@ -299,11 +275,13 @@ class MultiplyChoiceQuestion:
                                       'Подсказка :': "prompts", }
         dict_dict_footer_variables = {'Общий отзыв к вопросу:': "general_feedback"}
 
-        doc = Document(path_to_word)
         tables_in_doc = doc.tables
         need_table = tables_in_doc[idx]
 
         # self.question_name - NEED TO DO
+        # question_name in this format highlights af Heading 2
+        all_names = [paragraph for paragraph in doc.paragraphs if paragraph.style.name == "Heading 2"]
+        self.question_name = all_names[idx].text
 
         # In first row cell - name
         self.question_text['format'] = "text"  # in this format it is not required
@@ -336,14 +314,14 @@ class MultiplyChoiceQuestion:
             option.text['text'] = need_table.rows[idx].cells[1].text
             option.feedback = need_table.rows[idx].cells[2].text
             option.points = need_table.rows[idx].cells[3].text
-            if option.points != 0:
+            if option.points != "0":
                 option.is_correct = "1"
             else:
                 option.is_correct = "0"
             self.options.append(option)
 
         for ind in range(end_of_answers, len(need_table.rows) - 1):
-            name = ''.join([x for x in need_table.rows[ind].cells[1].text if not(x.isdigit())])
+            name = ''.join([x for x in need_table.rows[ind].cells[1].text if not (x.isdigit())])
             if name in dict_noniterable_footer_variables.keys():
                 setattr(self, dict_noniterable_footer_variables[name],
                         need_table.rows[ind].cells[2].text)
@@ -361,8 +339,120 @@ class MultiplyChoiceQuestion:
                     self.general_feedback['format'] = 'text'
                     self.general_feedback['text'] = need_table.rows[ind].cells[2].text
 
+    def parse_one_question_stepik(self, parsed_file: dict):
+        """
+        Parses one question using Stepik format (.step)
+        """
+        if "block" in parsed_file.keys():
+            block = parsed_file['block']
+            block_keys = block.keys()
+            if "name" in block_keys and block['name'] == "choice":
+                self.question_type = "multiply_choice"
+            else:
+                raise Exception("Not Multiple Choice Question")
+            if "text" in block_keys:
+                self.question_name = block['text']
+                self.question_text['format'] = block['source']['is_html_enabled']
+                self.question_text['text'] = block['text']
+            if "video" in block_keys:
+                self.video_link = block['video']
+            if "is_deprecated" in block_keys:
+                self.is_deprecated = self.__converter_to_bool(block['is_deprecated'])
+            if 'source' in block_keys:
+                source = block['source']
+                if "is_multiple_choice" in source.keys():
+                    self.is_single_answer = self.__converter_to_bool(source['is_multiple_choice'])
+                if 'is_always_correct' in source.keys():
+                    self.is_always_correct = self.__converter_to_bool(source['is_always_correct'])
+                if 'preserve_order' in source.keys():
+                    self.preserve_order = self.__converter_to_bool(source['preserve_order'])
 
-    def saveToFormat(self, file_name: str):
-        with open(file_name, 'w', encoding='utf-8') as f:
-            # Serialize the data and write it to the file
-            json.dump(self, f, default=lambda o: self.__encoder(o.__dict__), ensure_ascii=False)
+                if source['is_html_enabled']:
+                    format_of_answers = 'html'
+                else:
+                    format_of_answers = 'text'
+
+                if 'options' in source.keys():
+                    options = source['options']
+                    for option in options:
+                        answer = MultiplyChoiceAnswer()
+                        if 'is_correct' in option.keys():
+                            answer.is_correct = self.__converter_to_bool(option['is_correct'])
+                        if 'text' in option.keys():
+                            answer.text['format'] = format_of_answers
+                            answer.text['text'] = (option['text'])
+                        if 'feedback' in option.keys():
+                            answer.feedback['format'] = 'text'
+                            answer.feedback['text'] = (option['feedback'])
+                        self.options.append(answer)
+            if 'feedback_correct' in block_keys:
+                self.corrected_feedback['format'] = 'text'  # default
+                self.corrected_feedback['text'] = block['feedback_correct']
+            if 'feedback_wrong' in block_keys:
+                self.incorrect_feedback['format'] = 'text'  # default
+                self.incorrect_feedback['text'] = block['feedback_wrong']
+        if 'id' in parsed_file.keys():
+            self.question_id = parsed_file['id']
+        if 'has_review' in parsed_file.keys():
+            self.has_review = parsed_file['has_review']
+        if 'time' in parsed_file.keys():
+            self.creation_time = parsed_file['time']
+
+    def parse_one_question_testmoz_word(self, doc, idx=1):
+        #print(*([(x.text, x.style.name) for x in doc.paragraphs]), sep='-- END\n')
+        all_tables_in_doc = doc.tables
+        symbols = ['⬜', '⬛', '⚫', '⚪']
+        correct_symbols = ['⚫', '⬛']
+
+        tables_with_def = [x for x in all_tables_in_doc if str(idx) in x.rows[0].cells[0].text.strip()]
+
+        if len(tables_with_def) == 0:
+            raise Exception("No question with this index")
+
+        condition = tables_with_def[0]
+        idx_table_def = all_tables_in_doc.index(condition)
+
+        if idx_table_def < len(all_tables_in_doc) - 1:
+            next_table = all_tables_in_doc[idx_table_def + 1]
+
+            # check that it is multiply choice question
+            if not (any(any(y in symbols for y in x.cells[1].text) for x in next_table.rows)):
+                raise Exception("Not multiply choice question, no special symbols")
+        else:
+            raise Exception("Not multiply choice question")
+
+        answer_sheet = all_tables_in_doc[idx_table_def + 1]
+
+        self.question_name = condition.rows[0].cells[1].text
+
+        self.question_text['format'] = 'text'
+        self.question_text['text'] = condition.rows[0].cells[1].text
+        self.question_id = str(condition.rows[0].cells[0].text).replace('.', '')
+
+        points = ''.join([x for x in condition.rows[0].cells[2].text if x.isdigit()])
+
+        # parsing answers
+        num_correct = 0
+        for row in answer_sheet.rows:
+            cells = row.cells
+
+            answer = MultiplyChoiceAnswer()
+            # second column - right / not right
+            # third column - answer
+            answer.text['format'] = 'text'
+            answer.text['text'] = cells[2].text
+            if any(x == cells[1].text.strip() for x in correct_symbols):
+                answer.is_correct = True
+                num_correct += 1
+            else:
+                answer.is_correct = False
+            self.options.append(answer)
+
+        # Testmoz doesn't support points for partly correct answers, so point for each correct answer is $POINT_TASK / NUM_CORRECT$
+        for option in self.options:
+            option.points = int(points) / num_correct
+
+        if num_correct != 1:
+            self.is_single_answer = False
+        else:
+            self.is_single_answer = True
