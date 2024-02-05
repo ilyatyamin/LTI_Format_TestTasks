@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="LTI" type="PythonConfigurationType" factoryName="Python">
+  <configuration default="false" name="Console" type="PythonConfigurationType" factoryName="Python">
     <module name="LTI_Format_TestTasks" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />

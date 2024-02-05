@@ -1,8 +1,8 @@
 # pip install python-docx
 # pip install PyPDF2
+# pip install django
 
 import xml.etree.ElementTree as ElTree
-from CourseWork.MultiplyChoice.MultiplyChoiceAnswer import MultiplyChoiceAnswer
 
 
 class MultiplyChoiceQuestion:
@@ -399,7 +399,7 @@ class MultiplyChoiceQuestion:
             self.creation_time = parsed_file['time']
 
     def parse_one_question_testmoz_word(self, doc, idx=1):
-        #print(*([(x.text, x.style.name) for x in doc.paragraphs]), sep='-- END\n')
+        # print(*([(x.text, x.style.name) for x in doc.paragraphs]), sep='-- END\n')
         all_tables_in_doc = doc.tables
         symbols = ['⬜', '⬛', '⚫', '⚪']
         correct_symbols = ['⚫', '⬛']

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>METANIT.COM</title>
+</head>
+<body>
+<form method="POST", action="postuser/">
+    {% csrf_token %}
+    <table>
+        {{ form }}
+    </table>
+    <input type="file">
+    <input type="submit" value="Send">
+</form>
+</body>
+</html>
