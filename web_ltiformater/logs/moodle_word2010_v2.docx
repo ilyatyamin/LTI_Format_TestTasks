@@ -1,0 +1,5117 @@
+[
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Тестовый вопрос 2",
+        "question_text": {
+            "format": "text",
+            "text": "Посчитай сумму {c} и {d}."
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "{c}+{d}"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "{d}+{c}"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "corrected_feedback": {},
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": {},
+        "default_grade": "1",
+        "penalty": "33.3",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "В типичном случае динамическое программирование применяется к задачам оптимизации. Задача оптимизации сформулирована, если заданы:",
+        "question_text": {
+            "format": "text",
+            "text": "В типичном случае динамическое программирование применяется к задачам оптимизации. Задача оптимизации сформулирована, если заданы:"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Критерий оптимальности"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Варьируемые параметры и ограничения"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Математическая модель процесса"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Все перечисленные варианты"
+                },
+                "points": "100",
+                "is_correct": "1"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "В функции быстрой сортировки Хоара опорным является средний элемент массива",
+        "question_text": {
+            "format": "text",
+            "text": "В функции быстрой сортировки Хоара опорным является средний элемент массива\nvoid quickSort(int arr[], int left, int right) \n{ int i = left, j = right; int tmp;\n  int pivot = arr[(left + right)/2];\n   while (i <= j) \n    {\n      while (arr[i] < pivot) i++;\n      while (arr[j] > pivot) j--;\n      if (i <= j) \n       {\n        tmp=arr[i]; arr[i]=arr[j]; arr[j]=tmp;\n        i++; j--;\n       }\n    }\n   if (left < j)\n      quickSort(arr, left, j);\n   if (i < right)\n      quickSort(arr, i, right);\n}\nНа вход функции подается массив arr вида { 12, 3, 8, 3, 9, 11, 6}, индексы которого начинаются с 0.  \nquickSort(arr, 0, 6)\nПеред первым рекурсивным вызовом массив arr будет иметь вид"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "{3, 6, 8, 3, 9, 11, 12}"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "{3, 3, 8, 12, 9, 11, 6}"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "{3, 6, 3, 8, 9, 11, 12}"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "{3, 3, 6, 8, 9, 11, 12}"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Выберите верное утверждение о сортировке подсчетом:",
+        "question_text": {
+            "format": "text",
+            "text": "Выберите верное утверждение о сортировке подсчетом:"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Требуется дополнительная память – O(k) в случае устойчивой сортировки"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Асимптотическая сложность O(n + k)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Требуется дополнительная память – O(n + k) в случае неустойчивой сортировки"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Асимптотическая сложность O(nk)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Выберите верный вариант ответа, основываясь на приведенном коде",
+        "question_text": {
+            "format": "text",
+            "text": "Выберите верный вариант ответа, основываясь на приведенном коде:\ndef sort(k, n, C, A):\n    # k - кол-во различных элементов массива\n    # n - число элементов массива A\n    for i in range(k):\n        C[i] = 0\n    for i in range(n):\n        C[A[i]] += 1\n    b = 0\n    for i in range(k):\n        for j in range(C[i]):\n            A[b] = i\n            b += 1"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Реализован неустойчивый алгоритм сортировки подсчетом"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Реализован устойчивый алгоритм сортировки подсчетом"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Реализован алгоритм цифровой сортировки"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Нет правильного варианта ответа"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Для каких типов данных можно использовать бинарный поиск?",
+        "question_text": {
+            "format": "text",
+            "text": "Для каких типов данных можно использовать бинарный поиск?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Только для целых чисел"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Только для строк"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Для любых типов данных, которые можно сравнивать"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Только для вещественных чисел"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Для каких типов задач динамическое программирование наиболее подходит?",
+        "question_text": {
+            "format": "text",
+            "text": "Для каких типов задач динамическое программирование наиболее подходит?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Задачи с оптимальной подструктурой и перекрывающимися подзадачами"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Задачи сортировки и поиска"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Задачи на графах"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Задачи с большим объемом данных"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Для какой задачи не применяются алгоритмы поиска?",
+        "question_text": {
+            "format": "text",
+            "text": "Для какой задачи не применяются алгоритмы поиска?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Вычисление максимума"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Нахождение хеш-значений элементов"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Определение индекса минимума"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Подсчёт числа элементов последовательности в интервале"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Для чего алгоритм Шеннона-Фано использует вероятности символов?",
+        "question_text": {
+            "format": "text",
+            "text": "Для чего алгоритм Шеннона-Фано использует вероятности символов?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Для определения длины кодовых слов"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Для построения оптимального бинарного дерева"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Для определения порядка символов в словаре"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Для создания таблицы сжатия"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Как можно рассчитать числа Фибоначчи с использованием динамического программирования?",
+        "question_text": {
+            "format": "text",
+            "text": "Как можно рассчитать числа Фибоначчи с использованием динамического программирования?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Рекурсивно"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Используя таблицу для запоминания результатов"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Путем случайного выбора"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Подбором различных формул"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Как называется алгоритм поиска подмассива с заданной суммой?",
+        "question_text": {
+            "format": "text",
+            "text": "Как называется алгоритм поиска подмассива с заданной суммой?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Метод двух указателей"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Метод предельных границ"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Метод интервалов"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Метод максимизации подструктуры"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Как называется процесс преобразования последовательности символов в последовательность битов?",
+        "question_text": {
+            "format": "text",
+            "text": "Как называется процесс преобразования последовательности символов в последовательность битов?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Сжатие"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Кодирование"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Шифрование"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Конвертация"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Как называется процесс, в котором результаты решения подзадач сохраняются и заново используются",
+        "question_text": {
+            "format": "text",
+            "text": "Как называется процесс, в котором результаты решения подзадач сохраняются и заново используются?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Мемоизация"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Итерация"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Аппроксимация"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Рекурсия"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Как определяется степень вершины в графе?",
+        "question_text": {
+            "format": "text",
+            "text": "Как определяется степень вершины в графе?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Суммой весов инцидентных ребер"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Количеством инцидентных вершин"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Количеством инцидентных ребер"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Произведением весов инцидентных ребер"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Как работает сортировка подсчетом?",
+        "question_text": {
+            "format": "text",
+            "text": "Как работает сортировка подсчетом?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Разбивает массив на подмассивы и сортирует их отдельно, после объединяет"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Использует рекурсивный алгоритм деления массива пополам для сортировки"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Создает дополнительный массив и использует его для подсчета количества элементов с определенными значениями, после переставляет элементы в правильном порядке"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Сравнивает пары соседних элементов и меняет их по необходимости местами"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какая матрица используется для представления графа в виде таблицы, где в ячейке (I, j) стоит 1, если между вершинами i и j есть ребро, и 0, если ребра нет?",
+        "question_text": {
+            "format": "text",
+            "text": "Какая матрица используется для представления графа в виде таблицы, где в ячейке (I, j) стоит 1, если между вершинами i и j есть ребро, и 0, если ребра нет?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Матрица смежности"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Матрица инцидентности"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Матрица переходов"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Ни одна из перечисленных матриц"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какая операция не рассматривается при вычислении расстояния Левенштейна?",
+        "question_text": {
+            "format": "text",
+            "text": "Какая операция не рассматривается при вычислении расстояния Левенштейна?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Удаление"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Дублирование"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Замена"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Вставка"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какая операция рассматривается при вычислении расстояния Дамерау-Левенштейна?",
+        "question_text": {
+            "format": "text",
+            "text": "Какая операция рассматривается при вычислении расстояния Дамерау-Левенштейна?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Перестановка"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Транспонирование"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Композиция"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Транспозиция"
+                },
+                "points": "100",
+                "is_correct": "1"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какая сложность алгоритма с использованием динамического программирования для решения задачи о рюкзаке с n предметами и вместимостью w?",
+        "question_text": {
+            "format": "text",
+            "text": "Какая сложность алгоритма с использованием динамического программирования для решения задачи о рюкзаке с n предметами и вместимостью w?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(nw)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(2n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какая структура данных позволяет добавлять и удалять элементы как с начала, так и с конца?",
+        "question_text": {
+            "format": "text",
+            "text": "Какая структура данных позволяет добавлять и удалять элементы как с начала, так и с конца?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Список"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Стек"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Двустороння очередь"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Односторонняя очередь"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "&#x41A;&#x430;&#x43A;&#x430;&#x44F; &#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x443;&#x440;&#x430; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445; &#x440;&#x430;&#x431;&#x43E;&#x442;&#x430;&#x435;&#x442; &#x43F;&#x43E; &#x43F;&#x440;&#x438;&#x43D;&#x446;&#x438;&#x43F;&#x443; \"&#x43F;&#x43E;&#x441;&#x43B;&#x435;&#x434;&#x43D;&#x438;&#x439; &#x432;&#x43E;&#x448;&#x435;&#x43B;, &#x43F;&#x435;&#x440;&#x432;&#x44B;&#x439; &#x432;&#x44B;&#x448;&#x435;&#x43B;\" (Last-In-First-Out, LIFO)?",
+        "question_text": {
+            "format": "text",
+            "text": "Какая структура данных работает по принципу \"последний вошел, первый вышел\" (Last-In-First-Out, LIFO)?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Стек"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Дек"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Очередь"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Список"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "&#x41A;&#x430;&#x43A;&#x430;&#x44F; &#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x443;&#x440;&#x430; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445; &#x440;&#x430;&#x431;&#x43E;&#x442;&#x430;&#x435;&#x442; &#x43F;&#x43E; &#x43F;&#x440;&#x438;&#x43D;&#x446;&#x438;&#x43F;&#x443; \"&#x43F;&#x43E;&#x441;&#x43B;&#x435;&#x434;&#x43D;&#x438;&#x439; &#x432;&#x43E;&#x448;&#x435;&#x43B;, &#x43F;&#x435;&#x440;&#x432;&#x44B;&#x439; &#x432;&#x44B;&#x448;&#x435;&#x43B;\" (Last-In-First-Out, LIFO)?",
+        "question_text": {
+            "format": "text",
+            "text": "Какая структура данных работает по принципу \"последний вошел, первый вышел\" (Last-In-First-Out, LIFO)?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Стек"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Дек"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Очередь"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Список"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "&#x41A;&#x430;&#x43A;&#x430;&#x44F; &#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x443;&#x440;&#x430; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445; &#x440;&#x430;&#x431;&#x43E;&#x442;&#x430;&#x435;&#x442; &#x442;&#x43E;&#x43B;&#x44C;&#x43A;&#x43E; &#x43F;&#x43E; &#x43F;&#x440;&#x438;&#x43D;&#x446;&#x438;&#x43F;&#x443; \"&#x43F;&#x435;&#x440;&#x432;&#x44B;&#x439; &#x432;&#x43E;&#x448;&#x435;&#x43B;, &#x43F;&#x435;&#x440;&#x432;&#x44B;&#x439; &#x432;&#x44B;&#x448;&#x435;&#x43B;\" (First-In-First-Out, FIFO)?",
+        "question_text": {
+            "format": "text",
+            "text": "Какая структура данных работает только по принципу \"первый вошел, первый вышел\" (First-In-First-Out, FIFO)?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Стек"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Очередь"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Список"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Дек"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какие виды имеет бинарный поиск?",
+        "question_text": {
+            "format": "text",
+            "text": "Какие виды имеет бинарный поиск?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Верхний и нижний"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Западный и восточный"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Левосторонний и правосторонний"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Центральный и периферийный"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какие виды имеет бинарный поиск?",
+        "question_text": {
+            "format": "text",
+            "text": "Какие виды имеет бинарный поиск?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Верхний и нижний"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Западный и восточный"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Левосторонний и правосторонний"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Центральный и периферийный"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какие операции редактирования используются при вычислении расстояния Левенштейна?",
+        "question_text": {
+            "format": "text",
+            "text": "Какие операции редактирования используются при вычислении расстояния Левенштейна?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Вставка, удаление, замен"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Обращение, конкатенация, вставка"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Замена, поворот, обращение"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Удаление, конкатенация, замена"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Каков основной принцип работы алгоритма Хаффмана?",
+        "question_text": {
+            "format": "text",
+            "text": "Каков основной принцип работы алгоритма Хаффмана?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Замена последовательностей символов на короткие коды"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Создание переменно-длинных кодов на основе частоты символов"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Удаление избыточной информации"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Кодирование каждого символа фиксированным количеством бит"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова асимптотическая сложность алгоритма Дейкстры на базе массива?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова асимптотическая сложность алгоритма Дейкстры на базе массива?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2+m)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(mn)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(m2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова асимптотическая сложность алгоритма Флойда-Уоршелла?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова асимптотическая сложность алгоритма Флойда-Уоршелла?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2+m)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2m)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n3)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова асимптотическая сложность алгоритма Флойда-Уоршелла?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова асимптотическая сложность алгоритма Флойда-Уоршелла?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(V^2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(V^3)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(V^4)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(V log V)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова асимптотическая сложность добавления элемента в середину односвязного списка?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова асимптотическая сложность добавления элемента в середину односвязного списка?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(1)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n log n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова асимптотическая сложность операции добавления элемента в множество в Python?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова асимптотическая сложность операции добавления элемента в множество в Python?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(1)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log N)\n"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(N)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(N^2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова асимптотическая сложность операции добавления элемента в словарь в Python?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова асимптотическая сложность операции добавления элемента в словарь в Python?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(1)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log N)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(N)\n"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(N^2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова асимптотическая сложность операции проверки на равенство двух множеств в Python?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова асимптотическая сложность операции проверки на равенство двух множеств в Python?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(1)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log N)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(N)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(N^2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова асимптотическая сложность операции удаления элемента из множества по значению?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова асимптотическая сложность операции удаления элемента из множества по значению?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(1)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log N)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(N)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(N^2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова асимптотическая сложность операции удаления элемента из словаря по ключу?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова асимптотическая сложность операции удаления элемента из словаря по ключу?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(1)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log N)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(N)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(N^2)\n"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова асимптотическая сложность удаления элемента из начала двустороннего списка?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова асимптотическая сложность удаления элемента из начала двустороннего списка?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(1)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова асимптотическая сложность удаления элемента из односвязного списка в худшем случае?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова асимптотическая сложность удаления элемента из односвязного списка в худшем случае?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(1)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова временная сложность бинарного поиска в лучшем случае?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова временная сложность бинарного поиска в лучшем случае?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(1)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n log n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова основная идея алгоритма Шеннона-Фано?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова основная идея алгоритма Шеннона-Фано?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Присваивание коротких кодов часто встречающимся символам"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Разделение алфавита на две части с приблизительно одинаковыми частотами и рекурсивное применение этого метода"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Замена повторяющихся подстрок на коды"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Использование фиксированного словаря для сжатия"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова основная цель использования алгоритма Шеннона-Фано?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова основная цель использования алгоритма Шеннона-Фано?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Уменьшить размер файлов для хранения или передачи"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Ускорить время передачи данных по сети"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Улучшить качество изображений или звука"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Защитить данные от несанкционированного доступа"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова пространственная сложность бинарного поиска?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова пространственная сложность бинарного поиска?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(1)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n log n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какова сложность операции поиска элемента по ключу в хэш-таблице в среднем случае?",
+        "question_text": {
+            "format": "text",
+            "text": "Какова сложность операции поиска элемента по ключу в хэш-таблице в среднем случае?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(1)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log N)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(N)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(N^2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Каково время работы алгоритма сортировки бинарными вставками в лучшем случае?",
+        "question_text": {
+            "format": "text",
+            "text": "Каково время работы алгоритма сортировки бинарными вставками в лучшем случае?\ndef insertionSort(a):\n    n = len(a)\n    for i in range(1, n):\n        j = i - 1\n        k = binSearch(a, a[i], 0, j)\n        m = j\n        while m >= k:\n            a[m], a[m+1] = a[m+1], a[m]\n            m -= 1"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "О(n2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(1)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Каковы основные приложения расстояния Левенштейна?",
+        "question_text": {
+            "format": "text",
+            "text": "Каковы основные приложения расстояния Левенштейна?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Поиск в интернете и исправление опечаток"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Компрессия данных"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Криптография"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Построение графов"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какое время выполнения имеет алгоритм динамического программирования для решения задачи о нахождении наибольшей общей подпоследовательности длины n и m?",
+        "question_text": {
+            "format": "text",
+            "text": "Какое время выполнения имеет алгоритм динамического программирования для решения задачи о нахождении наибольшей общей подпоследовательности длины n и m?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(nm)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(2n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какое из следующих определений наиболее точно описывает понятие графа?",
+        "question_text": {
+            "format": "text",
+            "text": "Какое из следующих определений наиболее точно описывает понятие графа?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Граф – это набор вершин и ребер, связывающих эти вершины"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Граф – это набор вершин и дуг, связывающих эти вершины"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Граф – это набор ребер, связывающих вершины"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Граф – это набор дуг, связывающих вершины"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какое количество подстрок длины от 1 до n можно выделить из строки длины n?",
+        "question_text": {
+            "format": "text",
+            "text": "Какое количество подстрок длины от 1 до n можно выделить из строки длины n?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "(n2-n)/2"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "(n2+n)/2"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "(n2-n-1)/2"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "(n2-2n+1)/2"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какое утверждение о деревьях не верно?",
+        "question_text": {
+            "format": "text",
+            "text": "Какое утверждение о деревьях не верно?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Дерево не имеет кратных ребер"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Дерево – это связный ациклический граф"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Множество деревьев называют лесом"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Не каждое дерево является двудольным графом"
+                },
+                "points": "100",
+                "is_correct": "1"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какой алгоритм был основой для создания формата GIF?",
+        "question_text": {
+            "format": "text",
+            "text": "Какой алгоритм был основой для создания формата GIF?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Алгоритм Шеннона-Фано"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Алгоритм Хаффмана"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Алгоритм LZW"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Алгоритм RLE"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какой алгоритм сортировки на каждом шаге выбирает наименьший элемент и помещает его в начало неотсортированной части массива?",
+        "question_text": {
+            "format": "text",
+            "text": "Какой алгоритм сортировки на каждом шаге выбирает наименьший элемент и помещает его в начало неотсортированной части массива?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Сортировка пузырьком"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Сортировка выбором"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Сортировка вставками"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Сортировка слиянием"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какой граф является двудольным?",
+        "question_text": {
+            "format": "text",
+            "text": "Какой граф является двудольным?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Граф, в котором нет циклов"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Граф, в котором каждая вершина соединена с каждой другой вершиной в графе"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Граф, в котором все ребра имеют одинаковый вес"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Граф, который можно разделить на две непересекающиеся доли таким образом, что все ребра соединяют вершины из разных долей, причем внутри доли вершины не смежны"
+                },
+                "points": "100",
+                "is_correct": "1"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какой граф является связным?",
+        "question_text": {
+            "format": "text",
+            "text": "Какой граф является связным?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "В графе нет ребер"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Между каждой парой вершин в графе существует путь"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "В графе есть только одна вершина"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Граф имеет две отдельные компоненты"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какой из перечисленных графов является ориентированным графом?",
+        "question_text": {
+            "format": "text",
+            "text": "Какой из перечисленных графов является ориентированным графом?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Граф, в котором все ребра имеют вес"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Граф, состоящий из вершин и ребер, не имеющих направление"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Граф, в котором каждая вершина соединена с каждой другой вершиной"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Граф, в котором ребра имеют определенное направление"
+                },
+                "points": "100",
+                "is_correct": "1"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какой из приведенных графов не является двудольным?",
+        "question_text": {
+            "format": "text",
+            "text": "Какой из приведенных графов не является двудольным?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": ""
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": ""
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": ""
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": ""
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какой из следующих алгоритмов имеет квадратичную временную сложность в худшем и лучшем случаях?",
+        "question_text": {
+            "format": "text",
+            "text": "Какой из следующих алгоритмов имеет квадратичную временную сложность в худшем и лучшем случаях?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Сортировка пузырьком"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Сортировка выбором"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Сортировка вставками"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Сортировка пузырьком с условием Айверсона"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "&#x41A;&#x430;&#x43A;&#x43E;&#x439; &#x43A;&#x43E;&#x43D;&#x442;&#x435;&#x439;&#x43D;&#x435;&#x440; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x435;&#x442;&#x441;&#x44F; &#x434;&#x43B;&#x44F; &#x445;&#x440;&#x430;&#x43D;&#x435;&#x43D;&#x438;&#x44F; &#x43F;&#x430;&#x440; \"&#x43A;&#x43B;&#x44E;&#x447;-&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x438;&#x435;\" &#x431;&#x435;&#x437; &#x434;&#x443;&#x431;&#x43B;&#x438;&#x43A;&#x430;&#x442;&#x43E;&#x432; &#x43A;&#x43B;&#x44E;&#x447;&#x435;&#x439;?",
+        "question_text": {
+            "format": "text",
+            "text": "Какой контейнер используется для хранения пар \"ключ-значение\" без дубликатов ключей?\n"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "словарь"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "множество"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "список"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "очередь"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какой основной принцип лежит в основе метода Шеннона-Фано для кодирования символов?",
+        "question_text": {
+            "format": "text",
+            "text": "Какой основной принцип лежит в основе метода Шеннона-Фано для кодирования символов?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Присвоение более коротких кодов более частым символам"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Присвоение каждому символу уникального кода фиксированной длины"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Присвоение более длинных кодов более частым символам"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Присвоение каждому символу кода на основе его позиции в алфавите"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какую асимптотику имеет бинарный поиск?",
+        "question_text": {
+            "format": "text",
+            "text": "Какую асимптотику имеет бинарный поиск?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log n )"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log log log n)\n"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какую асимптотику имеет интерполяционный поиск?",
+        "question_text": {
+            "format": "text",
+            "text": "Какую асимптотику имеет интерполяционный поиск?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log log n )"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log log log log n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какую асимптотику имеет линейный поиск?",
+        "question_text": {
+            "format": "text",
+            "text": "Какую асимптотику имеет линейный поиск?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log n )"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log log n  )"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какую асимптотику имеет тернарный поиск?",
+        "question_text": {
+            "format": "text",
+            "text": "Какую асимптотику имеет тернарный поиск?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log n )"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log(r-l/ε))"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(log log n  )"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какую асимптотическую сложность имеет алгоритм Кнута-Морриса-Пратта?",
+        "question_text": {
+            "format": "text",
+            "text": "Какую асимптотическую сложность имеет алгоритм Кнута-Морриса-Пратта?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(nm)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2m)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какую асимптотическую сложность имеет наивный алгоритм поиска подстроки в строке?",
+        "question_text": {
+            "format": "text",
+            "text": "Какую асимптотическую сложность имеет наивный алгоритм поиска подстроки в строке?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(m)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(mn)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n log n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Какую сложность имеет операция доступа к элементу массива по его индексу?",
+        "question_text": {
+            "format": "text",
+            "text": "Какую сложность имеет операция доступа к элементу массива по его индексу?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(1)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(logn)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "O(n2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Когда целесообразно применять алгоритм сортировки подсчетом?",
+        "question_text": {
+            "format": "text",
+            "text": "Когда целесообразно применять алгоритм сортировки подсчетом?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Когда сортируемые элементы не ограничены по диапазону значени"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Когда требуется сортировать элементы, не сравнивая их между собой"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Когда сортируемые числа имеют диапазон возможных значений, который достаточно мал по сравнению с сортируемым множеством"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Когда массив уже почти отсортирован"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Ниже приведена реализация алгоритма сортировки расческой, который является модификацией пузырьковой сортировки. Выберите неверное утверждение.",
+        "question_text": {
+            "format": "text",
+            "text": "Ниже приведена реализация алгоритма сортировки расческой, который является модификацией пузырьковой сортировки. Выберите неверное утверждение. \ndef sort(a):\n    k = 1.3\n    n = len(a)\n    jump = n\n    swapped = True\n\n    while jump > 1 and swapped:\n        if jump > 1:\n            jump = int(jump / k)\n        swapped = False\n        for i in range(n - jump):\n            if a[i + jump] < a[i]:\n                a[i], a[i + jump] = a[i + jump], a[i]\n                swapped = True\n"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Сложность алгоритма O(n2)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Алгоритм является устойчивым"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Сложность стремится к O(n logn)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Все утверждения верны"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Определите степени вершин графа.",
+        "question_text": {
+            "format": "text",
+            "text": "Дан граф, с матрицей смежности. Определите степени вершин этого графа. \n[[0, 1, 1],\n [1, 0, 0], \n [1, 0, 0]]\n"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Вершина 1 – степень 2, вершина 2 – степень 2, вершина 3 – степень 1"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Вершина 1 – степень 2, вершина 2 – степень 1, вершина 3 – степень 1"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Вершина 1 – степень 1, вершина 2 – степень 2, вершина 3 – степень 1"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Вершина 1 – степень 1, вершина 2 – степень 2, вершина 3 – степень 2"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Префиксы и суффиксы строки длины n называются собственными, если их длина:",
+        "question_text": {
+            "format": "text",
+            "text": "Префиксы и суффиксы строки длины n называются собственными, если их длина:"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Больше 0 и меньше n"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Больше 0 и меньше или равна n"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Больше или равна 0 и меньше n"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Больше или равна 0 и меньше или равна n"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "При наличии каких объектов в графе алгоритм Дейкстры работает некорректно?",
+        "question_text": {
+            "format": "text",
+            "text": "При наличии каких объектов в графе алгоритм Дейкстры работает некорректно?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Рёбер отрицательного веса"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Петель (рёбер из вершины в саму себя)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Вершин степени 1"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Рёбер с весом, большим числа вершин"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "При наличии каких объектов в графе алгоритм Флойда-Уоршелла работает некорректно?",
+        "question_text": {
+            "format": "text",
+            "text": "При наличии каких объектов в графе алгоритм Флойда-Уоршелла работает некорректно?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Вершин степени 1"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Петель (ребер из вершины в саму себя)"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Рёбер отрицательного веса"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Отрицательных циклов"
+                },
+                "points": "100",
+                "is_correct": "1"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Принцип динамического программирования:",
+        "question_text": {
+            "format": "text",
+            "text": "Принцип динамического программирования:"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Принцип решения задач, основанный на разбиении их на подзадачи и сохранении результатов для дальнейшего использования"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Принцип решения задач, в котором результаты подзадач рассчитываются каждый раз заново"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Принцип решения задач, при котором используется одна переменная"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Принцип решения задач, основанный на использовании случайных чисел"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Рассмотрим очередь, в которую последовательно добавляются числа 2, 4, 6 и 8. Какое число будет удалено первым?",
+        "question_text": {
+            "format": "text",
+            "text": "Рассмотрим очередь, в которую последовательно добавляются числа 2, 4, 6 и 8. Какое число будет удалено первым?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "2"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "4"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "6"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "8"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Рассмотрим стек, в который последовательно добавляются числа 5, 10, 15 и 20. Какое число будет удалено первым при выполнении операции pop?",
+        "question_text": {
+            "format": "text",
+            "text": "Рассмотрим стек, в который последовательно добавляются числа 5, 10, 15 и 20. Какое число будет удалено первым при выполнении операции pop?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "5"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "10"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "15"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "20"
+                },
+                "points": "100",
+                "is_correct": "1"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Сколько можно выделить строк длины k из строки длины n?",
+        "question_text": {
+            "format": "text",
+            "text": "Сколько можно выделить строк длины k из строки длины n?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "n+k+1"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "n+k-1"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "n-k+1"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "n-k-1"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Чем алгоритм Флойда-Уоршелла отличается от алгоритма Дейкстры?",
+        "question_text": {
+            "format": "text",
+            "text": "Чем алгоритм Флойда-Уоршелла отличается от алгоритма Дейкстры?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Флойд-Уоршелл находит кратчайший путь между всеми парами вершин, а Дейкстра — только от одной вершины до всех остальных"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Флойд-Уоршелл работает только для ненаправленных графов, а Дейкстра — для направленных"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Флойд-Уоршелл работает только для графов с положительными весами рёбер, а Дейкстра — и для отрицательных"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Флойд-Уоршелл использует матричное представление графа, а Дейкстра — списковое"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Чем характеризуется оптимальный префиксный код в алгоритме Хаффмана?",
+        "question_text": {
+            "format": "text",
+            "text": "Чем характеризуется оптимальный префиксный код в алгоритме Хаффмана?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Минимизацией суммарной длины всех кодовых слов"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Максимизацией суммарной длины всех кодовых слов"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Фиксированной длиной всех кодовых слов"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Равномерным распределением длин кодовых слов"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что из перечисленного можно решить с помощью динамического программирования?",
+        "question_text": {
+            "format": "text",
+            "text": "Что из перечисленного можно решить с помощью динамического программирования?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Поиск кратчайшего пути в графе"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Расчет чисел Фибоначчи"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Задача о рюкзаке"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Все перечисленные варианты"
+                },
+                "points": "100",
+                "is_correct": "1"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что ищет алгоритм Дейкстры в графе?",
+        "question_text": {
+            "format": "text",
+            "text": "Что ищет алгоритм Дейкстры в графе?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Кратчайший путь между двумя вершинами"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Кратчайшие пути между всеми парами вершин"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Кратчайшие пути от одной вершины до всех остальных"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Кратчайшие пути между k (k<m) парами вершин"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что необходимо сделать перед применением бинарного поиска?",
+        "question_text": {
+            "format": "text",
+            "text": "Что необходимо сделать перед применением бинарного поиска?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Отсортировать массив"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Преобразовать массив в список"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Перевернуть массив"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Нормализовать массив"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что означает устойчивость алгоритма сортировки?",
+        "question_text": {
+            "format": "text",
+            "text": "Что означает устойчивость алгоритма сортировки?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Алгоритм способен обрабатывать различные типы данных"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Алгоритм обеспечивает оптимальную скорость выполнения"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Алгоритм сохраняет относительный порядок равных элементов после сортировки"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Алгоритм гарантирует полную сортировку массива"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что показывает задача о сходстве строк?",
+        "question_text": {
+            "format": "text",
+            "text": "Что показывает задача о сходстве строк?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Как быстро сравнить две строки"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Какая максимальная подстрока общая для двух строк"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Какое минимальное количество операций необходимо для превращения одной строки в другую"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Как определить, является ли одна строка подстрокой другой"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что произойдёт при попытке вставки того элемента во множество set, который уже присутствует в данном множестве:",
+        "question_text": {
+            "format": "text",
+            "text": "Что произойдёт при попытке вставки того элемента во множество set, который уже присутствует в данном множестве:\n"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Ошибка исполнения"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Ошибка компиляции"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Ничего не произойдет"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Добавится ещё один элемент в set с таким же значением"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что происходит, если двум разным входным данным соответствует один и тот же хэш-код?",
+        "question_text": {
+            "format": "text",
+            "text": "Что происходит, если двум разным входным данным соответствует один и тот же хэш-код?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Это нормально и не вызывает проблем"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Это называется коллизией и может потребовать дополнительной обработки"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Это означает, что данные повреждены"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Это гарантирует, что данные уникальны"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что стоит учитывать при работе алгоритма Флойда-Уоршелла с рёбрами, веса которых – вещественные числа?",
+        "question_text": {
+            "format": "text",
+            "text": "Что стоит учитывать при работе алгоритма Флойда-Уоршелла с рёбрами, веса которых – вещественные числа?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Число знаков после запятой веса каждого ребра"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Погрешность вычислений с плавающей точкой"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Точность, с которой известны веса рёбер"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Является ли вес ребра иррациональным числом"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что такое «Задача наибольшей общей подпоследовательности»?",
+        "question_text": {
+            "format": "text",
+            "text": "Что такое «Задача наибольшей общей подпоследовательности»?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Задача нахождения максимальной длины общей подстроки двух строк"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Задача нахождения наибольшего значения в общей подпоследовательности двух строк"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Задача нахождения суммы элементов в общей подпоследовательности двух строк"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Задача нахождения максимальной длины общей подпоследовательности двух строк"
+                },
+                "points": "100",
+                "is_correct": "1"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что такое «Задача о рюкзаке»?",
+        "question_text": {
+            "format": "text",
+            "text": "Что такое «Задача о рюкзаке»?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Задача нахождения оптимального расположения предметов в рюкзаке"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Задача нахождения веса предмета, помещенного в рюкзак"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Задача нахождения максимальной стоимости предметов, которые можно положить в рюкзак"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Задача нахождения объема рюкзака"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что такое мост в графе?",
+        "question_text": {
+            "format": "text",
+            "text": "Что такое мост в графе?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Ребро, которое соединяет две вершины"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Вершина графа, которая имеет только одно ребро"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Ребро, удаление которого увеличивает число компонент связности графа"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Ребро, вес которого максимален в графе"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что такое отрицательный цикл?",
+        "question_text": {
+            "format": "text",
+            "text": "Что такое отрицательный цикл?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Цикл, вес хотя бы одного ребра в котором отрицателен"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Цикл, вес ровно половины рёбер которого отрицателен"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Цикл, сумма весов рёбер которого отрицательна"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Цикл, количество рёбер в котором равно количеству вершин в графе"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что такое префиксное кодирование?",
+        "question_text": {
+            "format": "text",
+            "text": "Что такое префиксное кодирование?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Кодирование, где ни одно кодовое слово не является префиксом другого"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Кодирование, где каждое кодовое слово является префиксом другого"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Кодирование, где все кодовые символы имеют одинаковую длину"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Кодирование с использованием фиксированного префикса для каждого слова"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что такое хэш-функция?",
+        "question_text": {
+            "format": "text",
+            "text": "Что такое хэш-функция?\n"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Это шифровальный алгоритм"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Это математическая функция, которая преобразует входные данные в фиксированный размерный хэш-код"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Это способ сжатия данных"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Это алгоритм сортировки данных"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что такое энтропия в контексте теории информации?",
+        "question_text": {
+            "format": "text",
+            "text": "Что такое энтропия в контексте теории информации?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Мера неопределенности информации"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Мера сжатия информации"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Количество информации в сообщении"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Вероятность появления символов в сообщении"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Что является результатом работы алгоритма Флойда-Уоршелла?",
+        "question_text": {
+            "format": "text",
+            "text": "Что является результатом работы алгоритма Флойда-Уоршелла?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Матрица кратчайших расстояний между всеми парами вершин"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Список кратчайших расстояний от начальной вершины до всех остальных"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Минимальное остовное дерево"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Максимальный поток в сети"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_name": "Элементы какой структуры данных ТОЧНО хранятся в памяти целым единым неделимым куском?",
+        "question_text": {
+            "format": "text",
+            "text": "Элементы какой структуры данных ТОЧНО хранятся в памяти целым единым неделимым куском?"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Массив (список - list)"
+                },
+                "points": "100",
+                "is_correct": "1"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Односвязный список"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Стек"
+                },
+                "points": "0",
+                "is_correct": "0"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Дек"
+                },
+                "points": "0",
+                "is_correct": "0"
+            }
+        ],
+        "is_always_correct": false,
+        "shuffle_answer": "Да",
+        "corrected_feedback": "Ваш ответ верный.",
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": "Ваш ответ неправильный.",
+        "default_grade": "1",
+        "penalty": "33.3",
+        "answer_numbering": "a",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    },
+    {
+        "question_type": "multiply_choice",
+        "question_id": "ID-номер:",
+        "question_name": "Максимальная глубина рекурсии (максимальное количество ребер от корня до листа в дереве рекурсии) при выполнении алгоритма сортировки слиянием массива",
+        "question_text": {
+            "format": "text",
+            "text": "Максимальная глубина рекурсии (максимальное количество ребер от корня до листа в дереве рекурсии) при выполнении алгоритма сортировки слиянием массива\n{12, 514, 2, 1, 45, 9, 5, 11, 100}\nравна\n\n"
+        },
+        "options": [
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Максимальная глубина рекурсии (максимальное количество ребер от корня до листа в дереве рекурсии) при выполнении алгоритма сортировки слиянием массива\n{12, 514, 2, 1, 45, 9, 5, 11, 100}\nравна\n\n"
+                },
+                "points": "SA",
+                "is_correct": "1",
+                "feedback": "Максимальная глубина рекурсии (максимальное количество ребер от корня до листа в дереве рекурсии) при выполнении алгоритма сортировки слиянием массива\n{12, 514, 2, 1, 45, 9, 5, 11, 100}\nравна\n\n"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Балл по умолчанию:"
+                },
+                "points": "1",
+                "is_correct": "1",
+                "feedback": "Балл по умолчанию:"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Чувствительность к регистру:"
+                },
+                "points": "Нет",
+                "is_correct": "1",
+                "feedback": "Чувствительность к регистру:"
+            },
+            {
+                "text": {
+                    "format": "text",
+                    "text": "Штраф за каждую неправильную попытку:"
+                },
+                "points": "33.3",
+                "is_correct": "1",
+                "feedback": "Штраф за каждую неправильную попытку:"
+            }
+        ],
+        "is_always_correct": false,
+        "corrected_feedback": {},
+        "particular_corrected_feedback": {},
+        "incorrect_feedback": {},
+        "default_grade": "1",
+        "penalty": "33.3",
+        "general_feedback": {
+            "format": "text",
+            "text": " "
+        }
+    }
+]

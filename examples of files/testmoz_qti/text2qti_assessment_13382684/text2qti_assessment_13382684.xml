@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <assessment ident="text2qti_assessment_13382684" title="CourseWork">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="root_section">
+      <item ident="text2qti_question_quiz-230332310" title="Question 1">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.00</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>text2qti_choice_answer-849685590,text2qti_choice_answer-849685588,text2qti_choice_answer-849685586,text2qti_choice_answer-849685584</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>text2qti_question_ref_quiz-230332310</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Время получения последнего элемента в односвязном списке&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="text2qti_choice_answer-849685590">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;O(n)&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="text2qti_choice_answer-849685588">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;O(1)&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="text2qti_choice_answer-849685586">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;O(nlog(n))&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="text2qti_choice_answer-849685584">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;O(n!)&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="Yes">
+            <conditionvar>
+              <other/>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="general_fb"/>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">text2qti_choice_answer-849685590</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html"></mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="text2qti_question_quiz-230332336" title="Question 2">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>2.00</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>text2qti_choice_answer-849685700,text2qti_choice_answer-849685698,text2qti_choice_answer-849685696,text2qti_choice_answer-849685694</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>text2qti_question_ref_quiz-230332336</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;В C++ не реализован контейнер:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="text2qti_choice_answer-849685700">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Вектор&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="text2qti_choice_answer-849685698">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Словарь&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="text2qti_choice_answer-849685696">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Множество&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="text2qti_choice_answer-849685694">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Все данные контейнеры реализованы&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="Yes">
+            <conditionvar>
+              <other/>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="general_fb"/>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">text2qti_choice_answer-849685694</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html"></mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="text2qti_question_quiz-230332822" title="Question 3">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>short_answer_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.00</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>text2qti_choice_answer-849687496</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>text2qti_question_ref_quiz-230332822</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Кортеж в Python имеет имя&lt;/p&gt;</mattext>
+          </material>
+          <response_str ident="response1" rcardinality="Single">
+            <render_fib>
+              <response_label ident="answer1" rshuffle="No"/>
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="Yes">
+            <conditionvar>
+              <other/>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="general_fb"/>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">Tuple</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;в питоне он так называется&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="text2qti_question_quiz-230332860" title="Question 4">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>short_answer_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.00</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>text2qti_choice_answer-849687622</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>text2qti_question_ref_quiz-230332860</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What is 2 + 2?&lt;/p&gt;</mattext>
+          </material>
+          <response_str ident="response1" rcardinality="Single">
+            <render_fib>
+              <response_label ident="answer1" rshuffle="No"/>
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="Yes">
+            <conditionvar>
+              <other/>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="general_fb"/>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">4</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html"></mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="text2qti_question_quiz-230332862" title="Question 5">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>essay_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.00</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry></fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>text2qti_question_ref_quiz-230332862</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Введи свое имя&lt;/p&gt;</mattext>
+          </material>
+          <response_str ident="response1" rcardinality="Single">
+            <render_fib>
+              <response_label ident="answer1" rshuffle="No"/>
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <other/>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="Yes">
+            <conditionvar>
+              <other/>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="general_fb"/>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html"></mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="text2qti_question_quiz-230332342" title="Question 6">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_answers_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>5.00</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>text2qti_choice_answer-849685724,text2qti_choice_answer-849685722,text2qti_choice_answer-849685720,text2qti_choice_answer-849685718</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>text2qti_question_ref_quiz-230332342</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Выберите неквадратичные сортировки (средний случай не работает за O(N))&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Multiple">
+            <render_choice>
+              <response_label ident="text2qti_choice_answer-849685724">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Merge Sort&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="text2qti_choice_answer-849685722">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Quick Sort&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="text2qti_choice_answer-849685720">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Bubble Sort&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="text2qti_choice_answer-849685718">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;BogoSort&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="Yes">
+            <conditionvar>
+              <other/>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="general_fb"/>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <and>
+                <varequal respident="response1">text2qti_choice_answer-849685724</varequal>
+                <varequal respident="response1">text2qti_choice_answer-849685722</varequal>
+                <not>
+                  <varequal respident="response1">text2qti_choice_answer-849685720</varequal>
+                </not>
+                <not>
+                  <varequal respident="response1">text2qti_choice_answer-849685718</varequal>
+                </not>
+              </and>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html"></mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="text2qti_question_quiz-230332480" title="Question 7">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>true_false_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.00</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>text2qti_choice_answer-849686152,text2qti_choice_answer-849686150</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>text2qti_question_ref_quiz-230332480</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Верно ли, что доступ к элементу в std::vector работает за O(1)&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="text2qti_choice_answer-849686152">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;True&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="text2qti_choice_answer-849686150">
+                <material>
+                  <mattext texttype="text/html">False</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="Yes">
+            <conditionvar>
+              <other/>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="general_fb"/>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">text2qti_choice_answer-849686152</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html"></mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

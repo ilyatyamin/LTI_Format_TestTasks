@@ -1,0 +1,124 @@
+{
+  "__type" : "problemWithChecker",
+  "solutions" : [ ],
+  "tags" : [ ],
+  "includeFiles" : [ ],
+  "includeRunFiles" : [ ],
+  "postProcessFiles" : [ ],
+  "id" : "5117279/2023_03_06/X5nU2c0laf",
+  "externalUuid" : "10000164-781d-c2d2-68c1-3785eb4fcde7",
+  "ownerId" : 5117279,
+  "testFileType" : "text",
+  "creationTime" : 1678105738383,
+  "modifyTime" : 1704280975313,
+  "shortName" : "Task 19.1",
+  "defaultLocale" : "ru",
+  "names" : {
+    "ru" : "Task 19.1",
+    "en" : "Task 19.1"
+  },
+  "statements" : [ {
+    "locale" : "ru",
+    "type" : "markdown",
+    "path" : "statements/.html/ru/texstatement.html",
+    "additional" : false,
+    "state" : "valid",
+    "rendered" : true,
+    "markdownStatement" : {
+      "legend" : "Два игрока, Петя и Ваня, играют в следующую игру. Перед игроками лежат две кучи камней. Игроки ходят по очереди, первый ход делает Петя. За один ход игрок может\nдобавить в одну из куч один камень или\nувеличить количество камней в куче в два раза.\n \nНапример, пусть в одной куче 6 камней, а в другой 9 камней; такую позицию мы будем обозначать (6, 9). За один ход из позиции (6, 9) можно получить любую из четырёх позиций: (7, 9), (12, 9), (6, 10), (6, 18). Чтобы делать ходы, у каждого игрока есть неограниченное количество камней.\nИгра завершается в тот момент, когда суммарное количество камней в кучах становится не менее 74. Победителем считается игрок, сделавший последний ход, то есть первым получивший позицию, в которой в кучах будет 74 или больше камней.\nВ начальный момент в первой куче было 12 камней, во второй куче  — S камней, 1 ≤ S ≤ 61.\nБудем говорить, что игрок имеет выигрышную стратегию, если он может выиграть при любых ходах противника. Описать стратегию игрока  — значит, описать, какой ход он должен сделать в любой ситуации, которая ему может встретиться при различной игре противника. В описание выигрышной стратегии не следует включать ходы играющего по ней игрока, которые не являются для него безусловно выигрышными, т. е не гарантирующие выигрыш независимо от игры противника.\nИзвестно, что Ваня выиграл своим первым ходом после неудачного первого хода Пети. Укажите минимальное значение S, когда такая ситуация возможна.",
+      "inputFormat" : "",
+      "outputFormat" : "В тестирующую систему выведите свой код решения на языке Python, где код выводит в консоль 1 строку - решение задачи.",
+      "notes" : "",
+      "showLimits" : true
+    }
+  } ],
+  "fileSet" : {
+    "inputFile" : "input.txt",
+    "outputFile" : "output.txt",
+    "redirectStdin" : true,
+    "redirectStdout" : true
+  },
+  "solutionLimits" : {
+    "timeLimitMillis" : 5000,
+    "idlenessLimitMillis" : 10000,
+    "memoryLimit" : 37108864,
+    "outputLimit" : 67108864
+  },
+  "deleted" : false,
+  "sourceSizeLimit" : 262144,
+  "fileCreationAllowed" : false,
+  "customCompilerGroupLimits" : [ ],
+  "testSets" : [ {
+    "name" : "samples",
+    "inputFilePattern" : "tests/{01-03}",
+    "answerFilePattern" : "*.a",
+    "matchedTests" : [ {
+      "inputPath" : "tests/01",
+      "answerPath" : "tests/01.a",
+      "inputExists" : true,
+      "answerExists" : true
+    } ],
+    "testsMatched" : true
+  }, {
+    "name" : "All tests",
+    "inputFilePattern" : "tests/{01-}",
+    "answerFilePattern" : "*.a",
+    "matchedTests" : [ {
+      "inputPath" : "tests/01",
+      "answerPath" : "tests/01.a",
+      "inputExists" : true,
+      "answerExists" : true
+    } ],
+    "testsMatched" : true
+  }, {
+    "name" : "1",
+    "inputFilePattern" : "tests/{01-10}",
+    "answerFilePattern" : "*.a",
+    "matchedTests" : [ {
+      "inputPath" : "tests/01",
+      "answerPath" : "tests/01.a",
+      "inputExists" : true,
+      "answerExists" : true
+    } ],
+    "testsMatched" : true
+  }, {
+    "name" : "2",
+    "inputFilePattern" : "tests/{01-10}",
+    "answerFilePattern" : "*.a",
+    "matchedTests" : [ {
+      "inputPath" : "tests/01",
+      "answerPath" : "tests/01.a",
+      "inputExists" : true,
+      "answerExists" : true
+    } ],
+    "testsMatched" : true
+  } ],
+  "generators" : [ ],
+  "generateTestCommands" : [ ],
+  "validators" : [ ],
+  "compilationLimits" : {
+    "timeLimitMillis" : 60000,
+    "idlenessLimitMillis" : 60000,
+    "memoryLimit" : 1598029824,
+    "outputLimit" : 100000000
+  },
+  "customCompilationLimits" : [ ],
+  "fieldType" : "text-or-file",
+  "validation" : { },
+  "parentProblemId" : "5117279/2023_03_06/X5nU2c0laf",
+  "rootProblemId" : "5117279/2023_03_06/X5nU2c0laf",
+  "problemCorrectAnswers" : [ ],
+  "userAccess" : [ ],
+  "mountMode" : "hdd",
+  "checkerSettings" : {
+    "__type" : "standardChecker",
+    "limits" : {
+      "timeLimitMillis" : 10000,
+      "idlenessLimitMillis" : 10000,
+      "memoryLimit" : 268435456,
+      "outputLimit" : 268435456
+    },
+    "env" : { },
+    "checkerId" : "cmp_file"
+  }
+}

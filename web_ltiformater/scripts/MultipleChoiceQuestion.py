@@ -3,6 +3,7 @@
 # pip install django
 
 import xml.etree.ElementTree as ElTree
+from scripts.MultiplyChoiceAnswer import MultiplyChoiceAnswer
 
 
 class MultiplyChoiceQuestion:
@@ -456,3 +457,5 @@ class MultiplyChoiceQuestion:
             self.is_single_answer = False
         else:
             self.is_single_answer = True
+
+

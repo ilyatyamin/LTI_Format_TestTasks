@@ -11,6 +11,10 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+from FormatsHandler import FormatsHandler
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "web_ltiformater.settings")
 
 application = get_wsgi_application()
+
+manager = FormatsHandler()

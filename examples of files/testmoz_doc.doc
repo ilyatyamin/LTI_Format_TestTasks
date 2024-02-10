@@ -1,0 +1,557 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CourseWork</title>
+<style type="text/css">
+
+html {
+    max-width:8.5in;
+    margin:auto;
+}
+
+
+.answer > table td {
+    vertical-align:top;
+    padding-top:10px;
+}
+
+.answer p:first-child,
+.question-block td p:first-child {
+    margin-top:0;
+}
+
+.answer p:last-child,
+.question-block td p:last-child {
+    margin-bottom:0;
+}
+
+
+.nobreak {
+    page-break-inside: avoid !important;
+}
+
+
+.question-block {
+    width:100%;
+}
+
+@media print {
+    .print-hide {
+        display:none;
+
+    }
+}
+
+img {
+    max-width:100%;
+
+}
+
+</style>
+
+</head>
+<body>
+<div id="content">
+    
+    <h1 id="title">CourseWork</h1>
+    
+        <div id="introduction"></div>
+            
+                <br />
+                
+                    <table class="question-block">
+                        <tr>
+                            <td valign="top"><p>1.&nbsp;</p></td>
+                            <td width="100%" valign="top"><p>Время получения последнего элемента в односвязном списке</p></td>
+                            
+                                
+                                <td nowrap="nowrap" valign="top" class="points"><p>(1 point)</p></td>
+                            
+                        </tr>
+                    </table>
+
+                    <div class="answer">
+                        
+        <table>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x26AB;
+                            
+                        
+                    </td>
+                    <td valign="top"><p>O(n)</p></td>
+                </tr>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x26AA;
+                            
+                        
+                    </td>
+                    <td valign="top"><p>O(1)</p></td>
+                </tr>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x26AA;
+                            
+                        
+                    </td>
+                    <td valign="top"><p>O(nlog(n))</p></td>
+                </tr>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x26AA;
+                            
+                        
+                    </td>
+                    <td valign="top"><p>O(n!)</p></td>
+                </tr>
+            
+        </table>
+    
+                    </div>
+                
+                
+            
+                <br />
+                
+                    <table class="question-block">
+                        <tr>
+                            <td valign="top"><p>2.&nbsp;</p></td>
+                            <td width="100%" valign="top"><p>Сопоставьте контейнер с его особенностью</p></td>
+                            
+                                
+                                <td nowrap="nowrap" valign="top" class="points"><p>(1 point)</p></td>
+                            
+                        </tr>
+                    </table>
+
+                    <div class="answer">
+                        
+        <table>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    
+                        <td>
+                            
+                                
+                                    <span style="text-decoration:underline">&nbsp; 2 &nbsp;</span>
+                                
+                            
+                        </td>
+                        <td><p>std::unordered_set</p></td>
+                    
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        
+                            <strong>1.</strong>
+                        
+                    </td>
+                    <td><p>Аналог list() в Python</p></td>
+                </tr>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    
+                        <td>
+                            
+                                
+                                    <span style="text-decoration:underline">&nbsp; 3 &nbsp;</span>
+                                
+                            
+                        </td>
+                        <td><p>std::map</p></td>
+                    
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        
+                            <strong>2.</strong>
+                        
+                    </td>
+                    <td><p>Часто реализуют как набор корзин, индекс которых хешируется</p></td>
+                </tr>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    
+                        <td>
+                            
+                                
+                                    <span style="text-decoration:underline">&nbsp; 1 &nbsp;</span>
+                                
+                            
+                        </td>
+                        <td><p>std::vector</p></td>
+                    
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        
+                            <strong>3.</strong>
+                        
+                    </td>
+                    <td><p>Ассоциативный контейнер</p></td>
+                </tr>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    
+                        <td>
+                            
+                                
+                                    <span style="text-decoration:underline">&nbsp; 4 &nbsp;</span>
+                                
+                            
+                        </td>
+                        <td><p>std::unordered_map</p></td>
+                    
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        
+                            <strong>4.</strong>
+                        
+                    </td>
+                    <td><p>Неупорядоченный словарь</p></td>
+                </tr>
+            
+        </table>
+    
+                    </div>
+                
+                
+                    <div class="explanation"><br /><strong>Explanation:</strong> <p>Потому что так надо</p></div>
+                
+            
+                <br />
+                
+                    <table class="question-block">
+                        <tr>
+                            <td valign="top"><p>3.&nbsp;</p></td>
+                            <td width="100%" valign="top"><p>Выберите неквадратичные сортировки (средний случай не работает за O(N))</p></td>
+                            
+                                
+                                <td nowrap="nowrap" valign="top" class="points"><p>(5 points)</p></td>
+                            
+                        </tr>
+                    </table>
+
+                    <div class="answer">
+                        
+        <table>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x2B1C;
+                            
+                        
+                    </td>
+                    <td valign="top"><p>Bubble Sort</p></td>
+                </tr>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x2B1B;
+                            
+                        
+                    </td>
+                    <td valign="top"><p>Merge Sort</p></td>
+                </tr>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x2B1C;
+                            
+                        
+                    </td>
+                    <td valign="top"><p>BogoSort</p></td>
+                </tr>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x2B1B;
+                            
+                        
+                    </td>
+                    <td valign="top"><p>Quick Sort</p></td>
+                </tr>
+            
+        </table>
+    
+                    </div>
+                
+                
+            
+                <br />
+                
+                    <table class="question-block">
+                        <tr>
+                            <td valign="top"><p>4.&nbsp;</p></td>
+                            <td width="100%" valign="top"><p>What is 2 + 2?</p></td>
+                            
+                                
+                                <td nowrap="nowrap" valign="top" class="points"><p>(1 point)</p></td>
+                            
+                        </tr>
+                    </table>
+
+                    <div class="answer">
+                        
+        <div class="answer" style="margin-left:20px">
+            <p style="border-bottom:1px solid black">
+                
+                    4
+                
+            </p>
+        </div>
+    
+                    </div>
+                
+                
+            
+                <br />
+                
+                    <table class="question-block">
+                        <tr>
+                            <td valign="top"><p>5.&nbsp;</p></td>
+                            <td width="100%" valign="top"><p>Верно ли, что доступ к элементу в std::vector работает за O(1)</p></td>
+                            
+                                
+                                <td nowrap="nowrap" valign="top" class="points"><p>(1 point)</p></td>
+                            
+                        </tr>
+                    </table>
+
+                    <div class="answer">
+                        
+        <table>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x26AB;
+                            
+                        
+                    </td>
+                    <td valign="top"><p>True</p></td>
+                </tr>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x26AA;
+                            
+                        
+                    </td>
+                    <td valign="top">False</td>
+                </tr>
+            
+        </table>
+    
+                    </div>
+                
+                
+            
+                <br />
+                
+                    <table class="question-block">
+                        <tr>
+                            <td valign="top"><p>6.&nbsp;</p></td>
+                            <td width="100%" valign="top"><p>Введи свое имя</p></td>
+                            
+                                
+                                <td nowrap="nowrap" valign="top" class="points"><p>(1 point)</p></td>
+                            
+                        </tr>
+                    </table>
+
+                    <div class="answer">
+                        
+        <div class="answer" style="margin-left:20px">
+            <p style="border-bottom:1px solid black">
+                
+                    &nbsp;
+                
+            </p>
+        </div>
+    
+                    </div>
+                
+                
+            
+                <br />
+                
+                    <table class="question-block">
+                        <tr>
+                            <td valign="top"><p>7.&nbsp;</p></td>
+                            <td width="100%" valign="top"><p>В C++ не реализован контейнер:</p></td>
+                            
+                                
+                                <td nowrap="nowrap" valign="top" class="points"><p>(2 points)</p></td>
+                            
+                        </tr>
+                    </table>
+
+                    <div class="answer">
+                        
+        <table>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x26AA;
+                            
+                        
+                    </td>
+                    <td valign="top"><p>Вектор</p></td>
+                </tr>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x26AA;
+                            
+                        
+                    </td>
+                    <td valign="top"><p>Словарь</p></td>
+                </tr>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x26AA;
+                            
+                        
+                    </td>
+                    <td valign="top"><p>Множество</p></td>
+                </tr>
+            
+                <tr>
+                    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td valign="top" style="font-family:monospace; line-height:1;">
+                        
+                            
+                                &#x26AB;
+                            
+                        
+                    </td>
+                    <td valign="top"><p>Все данные контейнеры реализованы</p></td>
+                </tr>
+            
+        </table>
+    
+                    </div>
+                
+                
+            
+                <br />
+                
+                    <table class="question-block">
+                        <tr>
+                            <td valign="top"><p>8.&nbsp;</p></td>
+                            <td width="100%" valign="top"><p>Кортеж в Python имеет имя</p></td>
+                            
+                                
+                                <td nowrap="nowrap" valign="top" class="points"><p>(1 point)</p></td>
+                            
+                        </tr>
+                    </table>
+
+                    <div class="answer">
+                        
+        <div class="answer" style="margin-left:20px">
+            <p style="border-bottom:1px solid black">
+                
+                    Tuple
+                
+            </p>
+        </div>
+    
+                    </div>
+                
+                
+                    <div class="explanation"><br /><strong>Explanation:</strong> <p>в питоне он так называется</p></div>
+                
+            
+        </ol>
+    
+</div>
+<script>
+    (function(){
+        if(window.MATHY_ONCE !== undefined){
+            return;
+        }
+        window.MATHY_ONCE = true;
+
+        function ready(fn) {
+            if (document.readyState != 'loading'){
+                fn();
+            } else {
+                document.addEventListener('DOMContentLoaded', fn);
+            }
+        }
+
+        ready(function(){
+            var find = "m" + "athy";
+            var has_math = document.getElementsByTagName("body")[0].innerHTML.indexOf(find) != -1;
+            if(has_math){
+                var elements = document.querySelectorAll("." + find);
+                for(var i = 0; i < elements.length; i++){
+                    var item = elements[i];
+                    item.innerText = '`' + item.innerText + '`';
+                    //MathJax.Hub.Queue(["Typeset",MathJax.Hub,item]);
+
+                }
+                var script = document.createElement("script");
+                script.setAttribute("type", "text/javascript");
+                script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=AM_CHTML");
+                document.getElementsByTagName("head")[0].appendChild(script);
+            }
+        });
+    })()
+</script>
+
+</body>
+</html>
