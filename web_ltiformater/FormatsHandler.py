@@ -1,25 +1,40 @@
-import enum
 import json
-import warnings
 import xml.etree.ElementTree as ElTree
 from docx import Document
 
-from scripts.MultipleChoiceQuestion import MultiplyChoiceQuestion
-from scripts.conversion_formats import ConversionFormat
+from scripts.fromLTI.PlatformsMultipleChoice import PlatformsMultipleChoice
+from scripts.toLTI.MultipleChoiceQuestion import MultiplyChoiceQuestion
+from scripts.toLTI.conversion_formats import ConversionFormat
 
 
 class FormatsHandler:
     def __init__(self):
         self.manager_multiple_choice = MultipleChoiceManager()
+        self.platforms_multiple_choice = PlatformsMultipleChoice()
 
-    def process_question(self, path_to_file: str, file_structure: int):
+    def process_question(self, path_to_file: str, file_structure: int, needed_format: int):
         if ConversionFormat.is_multiple_choice(int(file_structure)):
-            return self.manager_multiple_choice.process_question(path_to_file, file_structure)
+            if needed_format == int(ConversionFormat.LTI):
+                return self.manager_multiple_choice.process_question_lti(path_to_file, file_structure)
+            if needed_format == int(ConversionFormat.MultipleChoiceMoodleXML):
+                question = self.manager_multiple_choice.process_question_lti(path_to_file, file_structure)
+                answer = self.platforms_multiple_choice.parse_one_question(question,
+                                                                           ConversionFormat.MultipleChoiceMoodleXML)
+                return answer
+            if needed_format == int(ConversionFormat.MultipleChoiceStepikStep):
+                question = self.manager_multiple_choice.process_question_lti(path_to_file, file_structure)
+                answer = self.platforms_multiple_choice.parse_one_question(question,
+                                                                           ConversionFormat.MultipleChoiceStepikStep)
+                return answer
 
     def get_text(self, obj) -> str:
-        return json.dumps(obj, default=lambda o: self.encoder(o.__dict__), ensure_ascii=False, indent=4)
+        if isinstance(obj, MultiplyChoiceQuestion):
+            return json.dumps(obj, default=lambda o: self.encoder(o.__dict__), ensure_ascii=False, indent=4)
+        if isinstance(obj, str):
+            return obj
 
-    def encoder(self, dictionary: dict):
+    @staticmethod
+    def encoder(dictionary: dict):
         values_to_delete = []
         for item, value in dictionary.items():
             if (value is None or (isinstance(value, str) and (value.isspace()))
@@ -35,10 +50,13 @@ class FormatsHandler:
         f = open(name_of_file, 'w+')
         f.seek(0)
 
-        # Serialize the data and write it to the file
-        json.dump(obj, f, default=lambda o: self.encoder(o.__dict__), ensure_ascii=False, indent=4)
+        if isinstance(obj, MultiplyChoiceQuestion):
+            json.dump(obj, f, default=lambda o: self.encoder(o.__dict__), ensure_ascii=False, indent=4)
+        elif isinstance(obj, str):
+            f.write(obj)
         f.truncate()
         f.close()
+
 
 
 class Manager:
@@ -64,7 +82,7 @@ class MultipleChoiceManager(Manager):
     Load banks of files
     """
 
-    def process_question(self, path_to_file: str, file_structure: int):
+    def process_question_lti(self, path_to_file: str, file_structure: int):
         if file_structure == int(ConversionFormat.MultipleChoiceMoodleXML):
             # check one or bank of questions
             self.strip_file(path_to_file)

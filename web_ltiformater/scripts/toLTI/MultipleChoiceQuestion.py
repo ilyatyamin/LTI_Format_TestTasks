@@ -3,7 +3,7 @@
 # pip install django
 
 import xml.etree.ElementTree as ElTree
-from scripts.MultiplyChoiceAnswer import MultiplyChoiceAnswer
+from scripts.toLTI.MultiplyChoiceAnswer import MultiplyChoiceAnswer
 
 
 class MultiplyChoiceQuestion:
@@ -353,7 +353,10 @@ class MultiplyChoiceQuestion:
                 raise Exception("Not Multiple Choice Question")
             if "text" in block_keys:
                 self.question_name = block['text']
-                self.question_text['format'] = block['source']['is_html_enabled']
+                if block['source']['is_html_enabled']:
+                    self.question_text['format'] = "html"
+                else:
+                    self.question_text['format'] = "text"
                 self.question_text['text'] = block['text']
             if "video" in block_keys:
                 self.video_link = block['video']

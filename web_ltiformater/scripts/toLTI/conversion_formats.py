@@ -6,9 +6,12 @@ class ConversionFormat(enum.Enum):
     MultipleChoiceMoodleCSV = 1,
     MultipleChoiceMoodleWord = 2,
     MultipleChoiceStepikStep = 3,
-    MultipleChoiceTestmozWord = 4
+    MultipleChoiceTestmozWord = 4,
+    LTI = 5
 
     def __int__(self):
+        if self == ConversionFormat.LTI:
+            return self.value
         return self.value[0]
 
     @staticmethod
