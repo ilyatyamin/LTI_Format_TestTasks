@@ -8,11 +8,19 @@ from scripts.toLTI.conversion_formats import ConversionFormat
 
 
 class FormatsHandler:
+    """
+    The base class for handling all transformations in system
+    """
+
     def __init__(self):
         self.manager_multiple_choice = MultipleChoiceManager()
         self.platforms_multiple_choice = PlatformsMultipleChoice()
 
     def process_question(self, path_to_file: str, file_structure: int, needed_format: int):
+        """
+        Method get path_to_file in string representations, it's file structure (Conversion Format enum) and format in which user need's to convert his/her file.
+        Returns MultipleChoice / list[MultipleChoice] / str in dependent of types
+        """
         if ConversionFormat.is_multiple_choice(int(file_structure)):
             if needed_format == int(ConversionFormat.LTI):
                 return self.manager_multiple_choice.process_question_lti(path_to_file, file_structure)
@@ -28,6 +36,10 @@ class FormatsHandler:
                 return answer
 
     def get_text(self, obj) -> str:
+        """
+        Return string-presentation of question.
+        Nevertheless, this method works if you will put in him string: it will return it without any transformations
+        """
         if isinstance(obj, MultiplyChoiceQuestion):
             return json.dumps(obj, default=lambda o: self.encoder(o.__dict__), ensure_ascii=False, indent=4)
         if isinstance(obj, str):
@@ -35,6 +47,9 @@ class FormatsHandler:
 
     @staticmethod
     def encoder(dictionary: dict):
+        """
+        Smart-encoding method. It doesn't take empty attributes in classes, just filled.
+        """
         values_to_delete = []
         for item, value in dictionary.items():
             if (value is None or (isinstance(value, str) and (value.isspace()))
@@ -47,6 +62,9 @@ class FormatsHandler:
         return dictionary
 
     def write_to_file(self, name_of_file: str, obj):
+        """
+        Write text-presentation of question to file
+        """
         f = open(name_of_file, 'w+')
         f.seek(0)
 
@@ -56,7 +74,6 @@ class FormatsHandler:
             f.write(obj)
         f.truncate()
         f.close()
-
 
 
 class Manager:

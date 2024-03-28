@@ -17,5 +17,3 @@ class ConversionFormat(enum.Enum):
     @staticmethod
     def is_multiple_choice(value: int):
         return value in range(0, 33)
-
-

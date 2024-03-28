@@ -66,6 +66,7 @@ class MultiplyChoiceQuestion:
         return option
 
     def parse_one_question_from_moodle_xml(self, parsed_file: ElTree.Element):
+        """Parse one question from Moodle XML format. Get ELTree.Element and fill the attributes in himself"""
         if parsed_file.tag != 'question' or parsed_file.attrib['type'] != 'multichoice':
             raise Exception("Not Multiply Choice Question.")
 

@@ -1,21 +1,11 @@
+from scripts.fromLTI.platforms.AbstractPlatformQuestion import AbstractPlatformQuestion
 from scripts.toLTI import MultipleChoiceQuestion
 import xml.etree.ElementTree as ElTree
 
 from scripts.toLTI.conversion_formats import ConversionFormat
 
 
-class MoodleXMLQuestion:
-    def __set_parent_xml(self, parent, child):
-        parent.append(child)
-
-    @staticmethod
-    def __is_correct(element):
-        if isinstance(element, dict):
-            return len(element) > 0
-        if element is None:
-            return False
-        return True
-
+class MoodleXMLQuestion(AbstractPlatformQuestion):
     def parse_one_question(self, parsed_question: MultipleChoiceQuestion, type_of_question : ConversionFormat):
         if type_of_question == ConversionFormat.MultipleChoiceMoodleXML:
             question_tag = ElTree.Element("question")
@@ -30,22 +20,22 @@ class MoodleXMLQuestion:
 
             questiontext_tag = ElTree.Element("questiontext")
             self.__set_parent_xml(question_tag, questiontext_tag)
-            if self.__is_correct(parsed_question.question_text):
+            if self.__is_correct(parsed_question.question_text, 'format'):
                 questiontext_tag.set("format", str(parsed_question.question_text['format']))
 
             questiontext_text_tag = ElTree.Element("text")
             self.__set_parent_xml(questiontext_tag, questiontext_text_tag)
-            if self.__is_correct(parsed_question.question_text):
+            if self.__is_correct(parsed_question.question_text, 'text'):
                 questiontext_text_tag.text = parsed_question.question_text['text']
 
             generalfeedback_tag = ElTree.Element("generalfeedback")
             self.__set_parent_xml(question_tag, generalfeedback_tag)
-            if self.__is_correct(parsed_question.general_feedback):
+            if self.__is_correct(parsed_question.general_feedback, 'format'):
                 generalfeedback_tag.set("format", str(parsed_question.general_feedback['format']))
 
             generalfeedback_text_tag = ElTree.Element('text')
             self.__set_parent_xml(generalfeedback_tag, generalfeedback_text_tag)
-            if self.__is_correct(parsed_question.general_feedback):
+            if self.__is_correct(parsed_question.general_feedback, 'text'):
                 generalfeedback_text_tag.text = parsed_question.general_feedback['text']
 
             defaultgrade_tag = ElTree.Element('defaultgrade')
@@ -94,32 +84,32 @@ class MoodleXMLQuestion:
 
             correctedfeedback_tag = ElTree.Element('correctedfeedback')
             self.__set_parent_xml(question_tag, correctedfeedback_tag)
-            if self.__is_correct(parsed_question.corrected_feedback):
+            if self.__is_correct(parsed_question.corrected_feedback, 'format'):
                 correctedfeedback_tag.set('format', parsed_question.corrected_feedback['format'])
 
             correctedfeedback_text_tag = ElTree.Element('text')
             self.__set_parent_xml(correctedfeedback_tag, correctedfeedback_text_tag)
-            if self.__is_correct(parsed_question.corrected_feedback):
+            if self.__is_correct(parsed_question.corrected_feedback, 'text'):
                 correctedfeedback_text_tag.text = parsed_question.corrected_feedback['text']
 
             partiallycorrectfeedback_tag = ElTree.Element('partiallycorrectfeedback')
             self.__set_parent_xml(question_tag, partiallycorrectfeedback_tag)
-            if self.__is_correct(parsed_question.particular_corrected_feedback):
+            if self.__is_correct(parsed_question.particular_corrected_feedback, 'format'):
                 partiallycorrectfeedback_tag.set('format', parsed_question.particular_corrected_feedback['format'])
 
             partiallycorrectfeedback_text_tag = ElTree.Element('text')
             self.__set_parent_xml(partiallycorrectfeedback_tag, partiallycorrectfeedback_text_tag)
-            if self.__is_correct(parsed_question.particular_corrected_feedback):
+            if self.__is_correct(parsed_question.particular_corrected_feedback, 'text'):
                 partiallycorrectfeedback_text_tag.text = parsed_question.particular_corrected_feedback['text']
 
             incorrectfeedback_tag = ElTree.Element('incorrectfeedback')
             self.__set_parent_xml(question_tag, incorrectfeedback_tag)
-            if self.__is_correct(parsed_question.incorrect_feedback):
+            if self.__is_correct(parsed_question.incorrect_feedback, 'format'):
                 incorrectfeedback_tag.set('format', parsed_question.incorrect_feedback['format'])
 
             incorrectfeedback_text_tag = ElTree.Element('text')
             self.__set_parent_xml(incorrectfeedback_tag, incorrectfeedback_text_tag)
-            if self.__is_correct(parsed_question.incorrect_feedback):
+            if self.__is_correct(parsed_question.incorrect_feedback, 'text'):
                 incorrectfeedback_text_tag.text = parsed_question.incorrect_feedback['text']
 
             shownumcorrect_tag = ElTree.Element('shownumcorrect')
@@ -130,23 +120,25 @@ class MoodleXMLQuestion:
             for option in parsed_question.options:
                 option_tag = ElTree.Element('answer')
                 self.__set_parent_xml(question_tag, option_tag)
-                if self.__is_correct(option.text):
+                if self.__is_correct(option.text, 'format'):
                     option_tag.set('format', option.text['format'])
+                if self.__is_correct(option.points):
                     option_tag.set('fraction', option.points)
 
                 option_text_tag = ElTree.Element('text')
                 self.__set_parent_xml(option_tag, option_text_tag)
-                if self.__is_correct(option.text):
+                if self.__is_correct(option.text, 'text'):
                     option_text_tag.text = str(option.text['text'])
 
                 option_feedback_tag = ElTree.Element('feedback')
                 self.__set_parent_xml(option_tag, option_feedback_tag)
-                if self.__is_correct(option.feedback):
+                if self.__is_correct(option.feedback, 'format'):
                     option_feedback_tag.set('format', str(option.feedback['format']))
 
                 option_feedback_text_tag = ElTree.Element('text')
                 self.__set_parent_xml(option_feedback_tag, option_feedback_text_tag)
-                if self.__is_correct(option.feedback):
+                if self.__is_correct(option.feedback, 'text'):
                     option_feedback_text_tag.text = str(option.feedback['text'])
 
-            return ElTree.dump(question_tag)
+            answer = ElTree.tostring(question_tag, encoding='unicode')
+            return answer
