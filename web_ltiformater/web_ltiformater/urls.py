@@ -20,6 +20,6 @@ from entries import views
 
 urlpatterns = [
     path("", views.mainpage, name='home'),
-    path("result/", views.postuser),
+    path("result/", views.send_form_postrequest),
     path("result/download_file/", views.download_file, name="download_file")
 ]

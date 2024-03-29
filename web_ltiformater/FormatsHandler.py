@@ -5,6 +5,8 @@ from docx import Document
 from scripts.fromLTI.PlatformsMultipleChoice import PlatformsMultipleChoice
 from scripts.toLTI.MultipleChoiceQuestion import MultiplyChoiceQuestion
 from scripts.toLTI.conversion_formats import ConversionFormat
+from scripts.web_requests.RequestManager import RequestManager
+from scripts.web_requests.RequestPlatform import RequestPlatform
 
 
 class FormatsHandler:
@@ -13,34 +15,39 @@ class FormatsHandler:
     """
 
     def __init__(self):
-        self.manager_multiple_choice = MultipleChoiceManager()
-        self.platforms_multiple_choice = PlatformsMultipleChoice()
+        self.__manager_multiple_choice = MultipleChoiceManager()
+        self.__platforms_multiple_choice = PlatformsMultipleChoice()
 
-    def process_question(self, path_to_file: str, file_structure: int, needed_format: int):
+    def process_file_based_question(self, path_to_file: str, file_structure: int, needed_format: int):
         """
         Method get path_to_file in string representations, it's file structure (Conversion Format enum) and format in which user need's to convert his/her file.
         Returns MultipleChoice / list[MultipleChoice] / str in dependent of types
         """
         if ConversionFormat.is_multiple_choice(int(file_structure)):
             if needed_format == int(ConversionFormat.LTI):
-                return self.manager_multiple_choice.process_question_lti(path_to_file, file_structure)
+                return self.__manager_multiple_choice.process_question_lti(path_to_file, file_structure)
             if needed_format == int(ConversionFormat.MultipleChoiceMoodleXML):
-                question = self.manager_multiple_choice.process_question_lti(path_to_file, file_structure)
-                answer = self.platforms_multiple_choice.parse_one_question(question,
-                                                                           ConversionFormat.MultipleChoiceMoodleXML)
+                question = self.__manager_multiple_choice.process_question_lti(path_to_file, file_structure)
+                answer = self.__platforms_multiple_choice.parse_one_question(question,
+                                                                             ConversionFormat.MultipleChoiceMoodleXML)
                 return answer
             if needed_format == int(ConversionFormat.MultipleChoiceStepikStep):
-                question = self.manager_multiple_choice.process_question_lti(path_to_file, file_structure)
-                answer = self.platforms_multiple_choice.parse_one_question(question,
-                                                                           ConversionFormat.MultipleChoiceStepikStep)
+                question = self.__manager_multiple_choice.process_question_lti(path_to_file, file_structure)
+                answer = self.__platforms_multiple_choice.parse_one_question(question,
+                                                                             ConversionFormat.MultipleChoiceStepikStep)
                 return answer
+
+    def process_request_based_question(self, courseId: int, quizId: int, file_structure: int, needed_format: int):
+        if ConversionFormat.is_multiple_choice(int(file_structure)):
+            if file_structure == int(ConversionFormat.CanvasInstructure):
+                return self.__manager_multiple_choice.process_question_lti('', file_structure, courseId, quizId)
 
     def get_text(self, obj) -> str:
         """
         Return string-presentation of question.
         Nevertheless, this method works if you will put in him string: it will return it without any transformations
         """
-        if isinstance(obj, MultiplyChoiceQuestion):
+        if isinstance(obj, MultiplyChoiceQuestion) or isinstance(obj, list):
             return json.dumps(obj, default=lambda o: self.encoder(o.__dict__), ensure_ascii=False, indent=4)
         if isinstance(obj, str):
             return obj
@@ -99,7 +106,7 @@ class MultipleChoiceManager(Manager):
     Load banks of files
     """
 
-    def process_question_lti(self, path_to_file: str, file_structure: int):
+    def process_question_lti(self, path_to_file: str, file_structure: int, courseId=None, quizId=None):
         if file_structure == int(ConversionFormat.MultipleChoiceMoodleXML):
             # check one or bank of questions
             self.strip_file(path_to_file)
@@ -129,6 +136,19 @@ class MultipleChoiceManager(Manager):
         elif file_structure == int(ConversionFormat.MultipleChoiceTestmozWord):
             # T-O-D-O: как парсить много вопросов?
             return self.__load_one_question__(path_to_file, file_structure)
+        elif file_structure == int(ConversionFormat.CanvasInstructure):
+            request = RequestManager.get_quiz_info(courseId, quizId, RequestPlatform.Canvas)
+            if request.status_code != 200:
+                raise Exception(
+                    'You have no rights for this. Please sure that you add user as teacher in your course ' +
+                    'and you correctly type courseId and quizId.')
+            bank = []
+            for question in json.loads(request.text):
+                if question['question_type'] == 'multiple_choice_question':
+                    obj = MultiplyChoiceQuestion()
+                    obj.parse_one_question_canvas(question)
+                    bank.append(obj)
+            return bank
 
     def __load_one_question__(self, path_to_file: str, file_structure: int) -> MultiplyChoiceQuestion:
         obj = MultiplyChoiceQuestion()

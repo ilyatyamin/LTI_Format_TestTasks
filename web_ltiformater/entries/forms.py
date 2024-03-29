@@ -8,12 +8,22 @@ class UserLoadedFileForm(forms.Form):
                                 (int(cf.MultipleChoiceMoodleCSV), "MultipleChoice - Moodle CSV"),
                                 (int(cf.MultipleChoiceMoodleWord), "MultipleChoice - Moodle Word"),
                                 (int(cf.MultipleChoiceStepikStep), "MultipleChoice - Stepik Step"),
-                                (int(cf.MultipleChoiceMoodleWord), "MultipleChoice - Testmoz Word")))
+                                (int(cf.MultipleChoiceMoodleWord), "MultipleChoice - Testmoz Word"),
+                                (int(cf.CanvasInstructure), "Canvas Instructure (via API)")))
     choice.label = 'Выберите тип загружаемого вопроса:'
     submit_your_file_here = forms.FileField()
 
     submit_your_file_here.label = 'Загрузите свой файл здесь'
     submit_your_file_here.allow_empty_file = True
+    submit_your_file_here.required = False
+
+    course_id = forms.IntegerField()
+    course_id.label = 'ID курса в Canvas: '
+    course_id.required = False
+
+    quiz_id = forms.IntegerField()
+    quiz_id.label = 'ID квиза в Canvas: '
+    quiz_id.required = False
 
     choice_to = forms.ChoiceField(choices=
     (

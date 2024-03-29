@@ -4,9 +4,10 @@
 
 import xml.etree.ElementTree as ElTree
 from scripts.toLTI.MultiplyChoiceAnswer import MultiplyChoiceAnswer
+from scripts.toLTI.Question import Question
 
 
-class MultiplyChoiceQuestion:
+class MultiplyChoiceQuestion(Question):
     """
     Class that introduced answer with one or multiply choice answer
     """
@@ -24,6 +25,8 @@ class MultiplyChoiceQuestion:
         self.is_always_correct = False
 
         # Optional fields. Depends on the platform
+        self.associated_quiz_id = None
+        self.assessment_question_id = None
         self.defaultLocale = None
         self.creation_time = None
         self.shuffle_answer = None
@@ -47,6 +50,7 @@ class MultiplyChoiceQuestion:
         self.creation_time = None
         self.tags: list = []
         self.prompts: list = []
+        self.weight = None
 
     @staticmethod
     def __converter_to_bool(option):
@@ -462,4 +466,68 @@ class MultiplyChoiceQuestion:
         else:
             self.is_single_answer = True
 
+    def parse_one_question_canvas(self, question_info: dict):
+        if self.is_correct(question_info['id']):
+            self.question_id = question_info['id']
+
+        if self.is_correct(question_info['quiz_id']):
+            self.associated_quiz_id = question_info['quiz_id']
+
+        if self.is_correct(question_info['assessment_question_id']):
+            self.assessment_question_id = question_info['assessment_question_id']
+
+        if self.is_correct(question_info['question_name']):
+            self.question_name = question_info['question_name']
+
+        if self.is_correct(question_info['question_text']):
+            self.question_text['text'] = question_info['question_text']
+            self.question_text['format'] = 'text'
+
+        if self.is_correct(question_info['points_possible']):
+            self.question_text['weight'] = question_info['points_possible']
+
+        if self.is_correct(question_info['correct_comments']):
+            self.corrected_feedback['text'] = question_info['correct_comments']
+            self.corrected_feedback['format'] = 'text'
+
+        if self.is_correct(question_info['correct_comments_html']):
+            self.corrected_feedback['text'] = question_info['correct_comments_html']
+            self.corrected_feedback['format'] = 'html'
+
+        if self.is_correct(question_info['neutral_comments']):
+            self.particular_corrected_feedback['text'] = question_info['neutral_comments']
+            self.particular_corrected_feedback['format'] = 'text'
+
+        if self.is_correct(question_info['neutral_comments_html']):
+            self.particular_corrected_feedback['text'] = question_info['neutral_comments_html']
+            self.particular_corrected_feedback['format'] = 'html'
+
+        if self.is_correct(question_info['incorrect_comments']):
+            self.incorrect_feedback['text'] = question_info['incorrect_comments']
+            self.incorrect_feedback['format'] = 'text'
+
+        if self.is_correct(question_info['incorrect_comments_html']):
+            self.particular_corrected_feedback['text'] = question_info['incorrect_comments_html']
+            self.particular_corrected_feedback['format'] = 'html'
+
+        if self.is_correct(question_info['answers']):
+            for answer in question_info['answers']:
+                option = MultiplyChoiceAnswer()
+                if self.is_correct(answer['id']):
+                    option.id = answer['id']
+                if self.is_correct(answer['text']):
+                    option.text['text'] = answer['text']
+                    option.text['format'] = 'text'
+                if self.is_correct(answer['html']):
+                    option.text['text'] = answer['html']
+                    option.text['format'] = 'html'
+                if self.is_correct(answer['comments']):
+                    option.feedback['text'] = answer['comments']
+                    option.feedback['format'] = 'text'
+                if self.is_correct(answer['comments_html']):
+                    option.feedback['text'] = answer['comments_html']
+                    option.feedback['format'] = 'html'
+                if self.is_correct(answer['weight']):
+                    option.points = answer['weight']
+                self.options.append(option)
 
