@@ -24,10 +24,75 @@
     <form method="POST" enctype="multipart/form-data" action="/result/">
         {% csrf_token %}
         <table>
-            {{ form.as_table }}
+            <tr>
+                <td>
+                    {{ form.choice.label }}
+                </td>
+                <td>
+                    {{ form.choice }}
+                </td>
+            </tr>
+
+            <tr id="file_upload_field">
+                <td>
+                    {{ form.submit_your_file_here.label }}
+                </td>
+                <td>
+                    {{ form.submit_your_file_here }}
+                </td>
+            </tr>
+
+            <tr id="course_id_field" style="display:none;">
+                <td>
+                    {{ form.course_id.label }}
+                </td>
+                <td>
+                    {{ form.course_id }}
+                </td>
+            </tr>
+
+            <tr id="quiz_id_field" style="display:none;">
+                <td>
+                    {{ form.quiz_id.label }}
+                </td>
+                <td>
+                    {{ form.quiz_id }}
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {{ form.choice_to.label }}
+                </td>
+                <td>
+                    {{ form.choice_to }}
+                </td>
+            </tr>
         </table>
         <input type="submit" value="Преобразовать" class="button_style">
     </form>
+
+    <script>
+        document.querySelector("#id_choice").addEventListener("change", function () {
+            const fileUploadField = document.querySelector("#file_upload_field");
+            const courseIdField = document.querySelector("#course_id_field");
+            const quizIdField = document.querySelector("#quiz_id_field");
+
+            console.log(this.value);
+
+            if (this.value === "6") {
+                console.log("DELETE");
+                fileUploadField.style.display = "none";
+                courseIdField.style.display = "table-row";
+                quizIdField.style.display = "table-row";
+            } else {  // Обратное отображение полей
+                fileUploadField.style.display = "table-row";
+                courseIdField.style.display = "none";
+                quizIdField.style.display = "none";
+            }
+        });
+    </script>
+
 </div>
 </body>
 </html>

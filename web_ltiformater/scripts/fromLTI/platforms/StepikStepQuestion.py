@@ -12,40 +12,40 @@ class StepikStepQuestion(AbstractPlatformQuestion):
 
             file['block']['name'] = 'choice'
 
-            if self.__is_correct(parsed_question.question_id):
+            if self.is_correct(parsed_question.question_id):
                 file['id'] = parsed_question.question_id
 
-            if self.__is_correct(parsed_question.has_review):
+            if self.is_correct(parsed_question.has_review):
                 file['has_review'] = parsed_question.has_review
 
-            if self.__is_correct(parsed_question.creation_time):
+            if self.is_correct(parsed_question.creation_time):
                 file['time'] = parsed_question.creation_time
 
-            if self.__is_correct(parsed_question.question_name):
+            if self.is_correct(parsed_question.question_name):
                 file['block']['text'] = parsed_question.question_name
 
-            if self.__is_correct(parsed_question.question_text, 'format'):
+            if self.is_correct(parsed_question.question_text, 'format'):
                 file['block']['source']['is_html_enabled'] = parsed_question.question_text['format']
 
-            if self.__is_correct(parsed_question.is_single_answer):
+            if self.is_correct(parsed_question.is_single_answer):
                 file['block']['source']['is_multiple_choice'] = parsed_question.is_single_answer
 
-            if self.__is_correct(parsed_question.is_always_correct):
+            if self.is_correct(parsed_question.is_always_correct):
                 file['block']['source']['is_always_correct'] = parsed_question.is_always_correct
 
-            if self.__is_correct(parsed_question.preserve_order):
+            if self.is_correct(parsed_question.preserve_order):
                 file['block']['source']['preserve_order'] = parsed_question.preserve_order
 
-            if self.__is_correct(parsed_question.video_link):
+            if self.is_correct(parsed_question.video_link):
                 file['block']['video'] = parsed_question.video_link
 
-            if self.__is_correct(parsed_question.is_deprecated):
+            if self.is_correct(parsed_question.is_deprecated):
                 file['block']['is_deprecated'] = parsed_question.is_deprecated
 
-            if self.__is_correct(parsed_question.corrected_feedback, 'text'):
+            if self.is_correct(parsed_question.corrected_feedback, 'text'):
                 file['block']['feedback_correct'] = parsed_question.corrected_feedback['text']
 
-            if self.__is_correct(parsed_question.incorrect_feedback, 'text'):
+            if self.is_correct(parsed_question.incorrect_feedback, 'text'):
                 file['block']['feedback_wrong'] = parsed_question.incorrect_feedback['text']
 
             # Options
@@ -53,11 +53,11 @@ class StepikStepQuestion(AbstractPlatformQuestion):
                 for option in parsed_question.options:
                     opt_json = {}
 
-                    if self.__is_correct(option.is_correct):
+                    if self.is_correct(option.is_correct):
                         opt_json['is_correct'] = option.is_correct
-                    if self.__is_correct(option.text, 'text'):
+                    if self.is_correct(option.text, 'text'):
                         opt_json['text'] = option.text['text']
-                    if self.__is_correct(option.feedback, 'text'):
+                    if self.is_correct(option.feedback, 'text'):
                         opt_json['feedback'] = option.feedback['text']
 
                     file['block']['options'].append(opt_json)

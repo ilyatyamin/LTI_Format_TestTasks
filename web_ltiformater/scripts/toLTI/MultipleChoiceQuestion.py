@@ -467,6 +467,7 @@ class MultiplyChoiceQuestion(Question):
             self.is_single_answer = True
 
     def parse_one_question_canvas(self, question_info: dict):
+        print(question_info)
         if self.is_correct(question_info['id']):
             self.question_id = question_info['id']
 

@@ -4,6 +4,7 @@ from docx import Document
 
 from scripts.fromLTI.PlatformsMultipleChoice import PlatformsMultipleChoice
 from scripts.toLTI.MultipleChoiceQuestion import MultiplyChoiceQuestion
+from scripts.toLTI.Question import Question
 from scripts.toLTI.conversion_formats import ConversionFormat
 from scripts.web_requests.RequestManager import RequestManager
 from scripts.web_requests.RequestPlatform import RequestPlatform
@@ -24,30 +25,32 @@ class FormatsHandler:
         Returns MultipleChoice / list[MultipleChoice] / str in dependent of types
         """
         if ConversionFormat.is_multiple_choice(int(file_structure)):
-            if needed_format == int(ConversionFormat.LTI):
-                return self.__manager_multiple_choice.process_question_lti(path_to_file, file_structure)
-            if needed_format == int(ConversionFormat.MultipleChoiceMoodleXML):
-                question = self.__manager_multiple_choice.process_question_lti(path_to_file, file_structure)
-                answer = self.__platforms_multiple_choice.parse_one_question(question,
-                                                                             ConversionFormat.MultipleChoiceMoodleXML)
-                return answer
-            if needed_format == int(ConversionFormat.MultipleChoiceStepikStep):
-                question = self.__manager_multiple_choice.process_question_lti(path_to_file, file_structure)
-                answer = self.__platforms_multiple_choice.parse_one_question(question,
-                                                                             ConversionFormat.MultipleChoiceStepikStep)
-                return answer
+            question = self.__manager_multiple_choice.process_question_lti(path_to_file, file_structure)
+            answer = self.__tranform_from_lti_to_platform(question, needed_format)
+            return answer
 
     def process_request_based_question(self, courseId: int, quizId: int, file_structure: int, needed_format: int):
         if ConversionFormat.is_multiple_choice(int(file_structure)):
             if file_structure == int(ConversionFormat.CanvasInstructure):
-                return self.__manager_multiple_choice.process_question_lti('', file_structure, courseId, quizId)
+                question = self.__manager_multiple_choice.process_question_lti('', file_structure, courseId, quizId)
+                return self.__tranform_from_lti_to_platform(question, needed_format)
+
+    def __tranform_from_lti_to_platform(self, question: Question, format_creat: int):
+        """
+        Transforms LTI created question to platform's format.
+        If format_creat is LTI, method returns string-presentation of question in LTI-style
+        """
+        if format_creat == int(ConversionFormat.LTI):
+            return self.get_text(question)
+        else:
+            return self.__platforms_multiple_choice.parse_one_question(question, format_creat)
 
     def get_text(self, obj) -> str:
         """
         Return string-presentation of question.
         Nevertheless, this method works if you will put in him string: it will return it without any transformations
         """
-        if isinstance(obj, MultiplyChoiceQuestion) or isinstance(obj, list):
+        if isinstance(obj, Question) or isinstance(obj, list):
             return json.dumps(obj, default=lambda o: self.encoder(o.__dict__), ensure_ascii=False, indent=4)
         if isinstance(obj, str):
             return obj
@@ -75,7 +78,7 @@ class FormatsHandler:
         f = open(name_of_file, 'w+')
         f.seek(0)
 
-        if isinstance(obj, MultiplyChoiceQuestion):
+        if isinstance(obj, MultiplyChoiceQuestion) or isinstance(obj, list):
             json.dump(obj, f, default=lambda o: self.encoder(o.__dict__), ensure_ascii=False, indent=4)
         elif isinstance(obj, str):
             f.write(obj)

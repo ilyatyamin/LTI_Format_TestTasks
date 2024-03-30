@@ -20,7 +20,7 @@ class AbstractPlatformQuestion(abc.ABC):
         parent.append(child)
 
     @staticmethod
-    def __is_correct(element, el_in_dict=None):
+    def is_correct(element, el_in_dict=None):
         """ Check correctness of element. This method tries to understand the type of object (dict, list, just string) and identify it's correctness """
         if isinstance(element, dict):
             if el_in_dict is not None:

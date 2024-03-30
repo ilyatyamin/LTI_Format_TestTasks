@@ -29,10 +29,8 @@ class UserLoadedFileForm(forms.Form):
     (
         (int(cf.LTI), "LTI"),
         (int(cf.MultipleChoiceMoodleXML), "Moodle XML"),
-        (int(cf.MultipleChoiceMoodleCSV), "Moodle CSV"),
-        (int(cf.MultipleChoiceMoodleWord), "Moodle Word"),
         (int(cf.MultipleChoiceStepikStep), "Stepik Step"),
-        (int(cf.MultipleChoiceMoodleWord), "Testmoz Word")))
+        (int(cf.CanvasInstructure), "Canvas Instructure")))
     choice_to.label = 'Выберите во что преобразовать:'
 
     required_css_class = "forms_text"
