@@ -318,7 +318,8 @@ class MultiplyChoiceQuestion(Question):
             option = MultiplyChoiceAnswer()
             option.text['format'] = 'text'  # default
             option.text['text'] = need_table.rows[idx].cells[1].text
-            option.feedback = need_table.rows[idx].cells[2].text
+            option.feedback['text'] = need_table.rows[idx].cells[2].text
+            option.feedback['format'] = 'text'
             option.points = need_table.rows[idx].cells[3].text
             if option.points != "0":
                 option.is_correct = "1"
@@ -329,8 +330,18 @@ class MultiplyChoiceQuestion(Question):
         for ind in range(end_of_answers, len(need_table.rows) - 1):
             name = ''.join([x for x in need_table.rows[ind].cells[1].text if not (x.isdigit())])
             if name in dict_noniterable_footer_variables.keys():
-                setattr(self, dict_noniterable_footer_variables[name],
-                        need_table.rows[ind].cells[2].text)
+                alias = dict_noniterable_footer_variables[name]
+                if alias == 'particular_corrected_feedback':
+                    self.particular_corrected_feedback['text'] = need_table.rows[ind].cells[2].text
+                    self.particular_corrected_feedback['format'] = 'text'
+                if alias == 'corrected_feedback':
+                    self.corrected_feedback['text'] = need_table.rows[ind].cells[2].text
+                    self.corrected_feedback['format'] = 'text'
+                if alias == 'incorrect_feedback':
+                    self.incorrect_feedback['text'] = need_table.rows[ind].cells[2].text
+                    self.incorrect_feedback['format'] = 'text'
+                if alias == 'question_id':
+                    self.question_id = need_table.rows[ind].cells[2].text
             elif name in dict_list_footer_variables.keys():
                 alias = dict_list_footer_variables[name]
                 if alias == "tags":
@@ -485,7 +496,7 @@ class MultiplyChoiceQuestion(Question):
             self.question_text['format'] = 'text'
 
         if self.is_correct(question_info['points_possible']):
-            self.question_text['weight'] = question_info['points_possible']
+            self.weight = question_info['points_possible']
 
         if self.is_correct(question_info['correct_comments']):
             self.corrected_feedback['text'] = question_info['correct_comments']

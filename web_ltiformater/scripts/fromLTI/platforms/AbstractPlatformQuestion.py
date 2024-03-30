@@ -15,7 +15,12 @@ class AbstractPlatformQuestion(abc.ABC):
         """ Creates string-view of LTI-question for specific platform (in dependent of type_of_question param) """
         pass
 
-    def __set_parent_xml(self, parent, child):
+    @abc.abstractmethod
+    def parse_questions(self, parsed_questions: list, type_of_question: ConversionFormat):
+        """ Creates string-view of list of LTI-questions for specific platform (in dependent of type_of_question param) """
+        pass
+
+    def set_parent_xml(self, parent, child):
         """ Helpful method for XML-based platforms. Assign parent object as parent for child. """
         parent.append(child)
 

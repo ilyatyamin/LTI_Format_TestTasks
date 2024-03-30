@@ -11,6 +11,7 @@ class UserLoadedFileForm(forms.Form):
                                 (int(cf.MultipleChoiceMoodleWord), "MultipleChoice - Testmoz Word"),
                                 (int(cf.CanvasInstructure), "Canvas Instructure (via API)")))
     choice.label = 'Выберите тип загружаемого вопроса:'
+    choice.help_text = 'При выборе Canvas, убедитесь, что в Ваш курс добавлен аккаунт с почтой ltiformmatters@gmail.com как администратор.'
     submit_your_file_here = forms.FileField()
 
     submit_your_file_here.label = 'Загрузите свой файл здесь'

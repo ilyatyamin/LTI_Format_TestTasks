@@ -43,7 +43,7 @@ class FormatsHandler:
         if format_creat == int(ConversionFormat.LTI):
             return self.get_text(question)
         else:
-            return self.__platforms_multiple_choice.parse_one_question(question, format_creat)
+            return self.__platforms_multiple_choice.parse_questions(question, format_creat)
 
     def get_text(self, obj) -> str:
         """

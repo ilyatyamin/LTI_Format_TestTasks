@@ -6,7 +6,7 @@ from scripts.toLTI.conversion_formats import ConversionFormat
 
 
 class CanvasInstructureQuestion(AbstractPlatformQuestion):
-    def parse_one_question(self, parsed_question: MultipleChoiceQuestion, type_of_question: ConversionFormat):
+    def parse_one_question(self, parsed_question: MultipleChoiceQuestion, type_of_question: ConversionFormat, presentation='string'):
         result = {}
         if type_of_question == ConversionFormat.CanvasInstructure:
             if parsed_question.question_type == 'multiply_choice':
@@ -27,7 +27,7 @@ class CanvasInstructureQuestion(AbstractPlatformQuestion):
                     result['question_text'] = parsed_question.question_text['text']
 
                 if self.is_correct(parsed_question.weight):
-                    result['points_possible'] = parsed_question.weight
+                    result['points_possible'] = str(parsed_question.weight)
 
                 if (self.is_correct(parsed_question.corrected_feedback, 'text')
                         and parsed_question.corrected_feedback['format'] == 'text'):
@@ -76,4 +76,21 @@ class CanvasInstructureQuestion(AbstractPlatformQuestion):
 
                         answers.append(file)
                     result['answers'] = answers
-        return json.dumps(result, ensure_ascii=False, indent=4)
+        if presentation == 'string':
+            return json.dumps(result, ensure_ascii=False, indent=4)
+        elif presentation == 'self':
+            return result
+        else:
+            raise Exception('Incorrect presentation tag!')
+
+    def parse_questions(self, parsed_questions: list, type_of_question: ConversionFormat, presentation='string'):
+        result = []
+        for question in parsed_questions:
+            json_present = self.parse_one_question(question, ConversionFormat.CanvasInstructure, presentation='self')
+            result.append(json_present)
+        if presentation == 'string':
+            return json.dumps(result, ensure_ascii=False, indent=4)
+        elif presentation == 'self':
+            return result
+        else:
+            raise Exception('Incorrect presentation tag!')
