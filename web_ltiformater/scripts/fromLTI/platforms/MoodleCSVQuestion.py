@@ -4,6 +4,9 @@ from scripts.toLTI.conversion_formats import ConversionFormat
 
 
 class MoodleCSVQuestion(AbstractPlatformQuestion):
+    def parse_questions(self, parsed_questions: list, type_of_question: ConversionFormat):
+        pass
+
     def parse_one_question(self, parsed_question: MultipleChoiceQuestion, type_of_question: ConversionFormat):
         pass
 

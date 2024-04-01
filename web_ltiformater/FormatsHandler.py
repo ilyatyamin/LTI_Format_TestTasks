@@ -14,10 +14,25 @@ class FormatsHandler:
     """
     The base class for handling all transformations in system
     """
-
     def __init__(self):
         self.__manager_multiple_choice = MultipleChoiceManager()
         self.__platforms_multiple_choice = PlatformsMultipleChoice()
+        self.xml_formats = [int(ConversionFormat.MultipleChoiceMoodleXML)]
+        self.json_formats = [int(ConversionFormat.LTI), int(ConversionFormat.MultipleChoiceStepikStep),
+                             int(ConversionFormat.CanvasInstructure)]
+        self.csv_formats = [int(ConversionFormat.MultipleChoiceMoodleCSV)]
+        self.docx_formats = [int(ConversionFormat.MultipleChoiceTestmozWord),
+                             int(ConversionFormat.MultipleChoiceMoodleWord)]
+
+    def get_format(self, current_format: int):
+        if current_format in self.xml_formats:
+            return 'xml'
+        if current_format in self.json_formats:
+            return 'json'
+        if current_format in self.csv_formats:
+            return 'csv'
+        if current_format in self.docx_formats:
+            return 'docx'
 
     def process_file_based_question(self, path_to_file: str, file_structure: int, needed_format: int):
         """
@@ -87,6 +102,7 @@ class FormatsHandler:
 
 
 class Manager:
+
     def open_file(self, path: str) -> list[str]:
         with open(path, encoding='utf8') as file:
             return file.readlines()

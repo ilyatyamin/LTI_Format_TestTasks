@@ -3,6 +3,7 @@ from scripts.toLTI.conversion_formats import ConversionFormat as cf
 
 
 class UserLoadedFileForm(forms.Form):
+    # Initialize user form
     choice = forms.ChoiceField(choices=
                                ((int(cf.MultipleChoiceMoodleXML), "MultipleChoice - Moodle XML"),
                                 (int(cf.MultipleChoiceMoodleCSV), "MultipleChoice - Moodle CSV"),

@@ -2,7 +2,6 @@ import abc
 
 
 class Question(abc.ABC):
-
     def is_correct(self, element, el_in_dict=None):
         """ Check correctness of element. This method tries to understand the type of object (dict, list, just string) and identify it's correctness """
         if isinstance(element, dict):

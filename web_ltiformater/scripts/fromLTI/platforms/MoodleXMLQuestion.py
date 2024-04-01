@@ -10,8 +10,11 @@ from scripts.toLTI.conversion_formats import ConversionFormat
 class MoodleXMLQuestion(AbstractPlatformQuestion):
     def parse_one_question(self, parsed_question: MultipleChoiceQuestion, type_of_question: ConversionFormat, presentation='string'):
         if type_of_question == ConversionFormat.MultipleChoiceMoodleXML:
+            quiz_tag = ElTree.Element('quiz')
+
             question_tag = ElTree.Element("question")
             question_tag.set("type", "multichoice")
+            self.set_parent_xml(quiz_tag, question_tag)
 
             name_tag = ElTree.Element('name')
             self.set_parent_xml(question_tag, name_tag)
@@ -63,16 +66,17 @@ class MoodleXMLQuestion(AbstractPlatformQuestion):
             single_tag = ElTree.Element('single')
             self.set_parent_xml(question_tag, single_tag)
             if str(parsed_question.is_single_answer) == '1':
-                single_tag.text = 'true'
+                single_tag.text = '1'
             else:
-                single_tag.text = 'false'
+                single_tag.text = '0'
 
             shuffleanswers_tag = ElTree.Element('shuffleanswers')
             self.set_parent_xml(question_tag, shuffleanswers_tag)
-            if str(parsed_question.shuffle_answer) == '1':
-                shuffleanswers_tag.text = 'true'
-            else:
-                shuffleanswers_tag.text = 'false'
+            if self.is_correct(parsed_question.shuffle_answer):
+                if parsed_question.shuffle_answer:
+                    shuffleanswers_tag.text = '1'
+                else:
+                    shuffleanswers_tag.text = '0'
 
             answernumbering_tag = ElTree.Element('answernumbering')
             self.set_parent_xml(question_tag, answernumbering_tag)
@@ -143,7 +147,7 @@ class MoodleXMLQuestion(AbstractPlatformQuestion):
                     option_feedback_text_tag.text = str(option.feedback['text'])
 
             if presentation == 'string':
-                answer = ElTree.tostring(question_tag, encoding='unicode')
+                answer = ElTree.tostring(quiz_tag, encoding='unicode')
                 return minidom.parseString(answer).toprettyxml()
             elif presentation == 'xml':
                 return question_tag

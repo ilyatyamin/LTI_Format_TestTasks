@@ -23,5 +23,5 @@ urlpatterns = [
     path("result/", views.send_form_postrequest),
     path("result/download_file/", views.download_file, name="download_file"),
 
-    path("ajax/reload_form", views.reload_page, name = 'reload_page')
+    path("ajax/reload_form", views.reload_page, name='reload_page')
 ]

@@ -1,7 +1,3 @@
-# pip install python-docx
-# pip install PyPDF2
-# pip install django
-
 import xml.etree.ElementTree as ElTree
 from scripts.toLTI.MultiplyChoiceAnswer import MultiplyChoiceAnswer
 from scripts.toLTI.Question import Question
@@ -11,7 +7,6 @@ class MultiplyChoiceQuestion(Question):
     """
     Class that introduced answer with one or multiply choice answer
     """
-
     def __init__(self):
         # Obligatory fields
         self.question_type = "multiply_choice"
@@ -19,7 +14,6 @@ class MultiplyChoiceQuestion(Question):
         self.question_name = None  #
         self.question_text: dict = {}
         self.is_single_answer = None
-        self.text_style = None
         self.options: list = []
         self.is_needed_feedback = None
         self.is_always_correct = False
@@ -27,7 +21,6 @@ class MultiplyChoiceQuestion(Question):
         # Optional fields. Depends on the platform
         self.associated_quiz_id = None
         self.assessment_question_id = None
-        self.defaultLocale = None
         self.creation_time = None
         self.shuffle_answer = None
         self.corrected_feedback: dict = {}
@@ -38,6 +31,7 @@ class MultiplyChoiceQuestion(Question):
         self.hidden = None
         self.answer_numbering = None
         self.show_standard_instruction = None
+        self.sample_size = None
         self.show_num_correct = None
         self.video_link = None
         self.subtitle_files: list = []
@@ -47,7 +41,6 @@ class MultiplyChoiceQuestion(Question):
         self.output_format = None
         self.general_feedback: dict = {}  #
         self.course_id = None
-        self.creation_time = None
         self.tags: list = []
         self.prompts: list = []
         self.weight = None
@@ -97,12 +90,12 @@ class MultiplyChoiceQuestion(Question):
         # Parsing default grade
         tag_default_grade = parsed_file.find("defaultgrade")
         if tag_default_grade is not None:
-            self.default_grade = tag_default_grade.text
+            self.default_grade = float(tag_default_grade.text)
 
         # Parsing penalty
         tag_penalty = parsed_file.find("penalty")
         if tag_penalty is not None:
-            self.penalty = tag_penalty.text
+            self.penalty = float(tag_penalty.text)
 
         # Parsing hidden
         tag_hidden = parsed_file.find("hidden")
@@ -112,23 +105,23 @@ class MultiplyChoiceQuestion(Question):
         # Parsing course id
         tag_course_id = parsed_file.find("idnumber")
         if tag_course_id is not None:
-            self.course_id = tag_course_id.text
+            self.course_id = str(tag_course_id.text)
 
         # Parsing is_single_answer
         tag_is_single_answer = parsed_file.find("single")
         if tag_is_single_answer is not None:
             if tag_is_single_answer.text == "true":
-                self.is_single_answer = 1
+                self.is_single_answer = True
             else:
-                self.is_single_answer = 0
+                self.is_single_answer = False
 
         # Parsing shuffleanswers
         tag_shuffleanswers = parsed_file.find("shuffleanswers")
         if tag_shuffleanswers is not None:
             if tag_shuffleanswers.text == "true":
-                self.shuffle_answer = 1
+                self.shuffle_answer = True
             else:
-                self.shuffle_answer = 0
+                self.shuffle_answer = False
 
         # Parsing answer numbering style
         tag_answernumbering = parsed_file.find("answernumbering")
@@ -138,7 +131,7 @@ class MultiplyChoiceQuestion(Question):
         # Parsing showstandardinstruction
         tag_showstandardinstruction = parsed_file.find("showstandardinstruction")
         if tag_showstandardinstruction is not None:
-            self.show_standard_instruction = tag_showstandardinstruction.text
+            self.show_standard_instruction = self.__converter_to_bool(tag_showstandardinstruction.text)
 
         # Parsing correctfeedback: it's format and text
         tag_correctfeedback = parsed_file.find("correctfeedback")
@@ -170,9 +163,9 @@ class MultiplyChoiceQuestion(Question):
         # Parsing shownumcorrect
         tag_shownumcorrect = parsed_file.find("shownumcorrect")
         if tag_shownumcorrect is not None:
-            self.show_num_correct = 1
+            self.show_num_correct = True
         else:
-            self.show_num_correct = 0
+            self.show_num_correct = False
 
         # Parsing all answers
         all_answers = parsed_file.findall("answer")
@@ -186,9 +179,11 @@ class MultiplyChoiceQuestion(Question):
 
                 # Fraction in this case means points that you have if you will correctly answer on the question
                 if "fraction" in tag_answer.attrib.keys():
-                    result.points = tag_answer.attrib['fraction']
-                else:
-                    result.points = "1"
+                    result.points = int(tag_answer.attrib['fraction'])
+                    if int(tag_answer.attrib['fraction']) != 0:
+                        result.is_correct = True
+                    else:
+                        result.is_correct = False
 
                 text = tag_answer.find("text")
                 if text is not None:
@@ -257,7 +252,7 @@ class MultiplyChoiceQuestion(Question):
 
             # Checking default_mark
             if "defaultmark" in tags_line:
-                self.default_grade = working_line[tags_line.index("defaultmark")]
+                self.default_grade = float(working_line[tags_line.index("defaultmark")])
         else:
             raise Exception("Structure is not correct")
 
@@ -303,7 +298,16 @@ class MultiplyChoiceQuestion(Question):
         # All params that higher than answers
         for row in need_table.rows[1:idx_answers_headers]:
             if row.cells[0].text in dict_variables:
-                setattr(self, dict_variables[row.cells[0].text], row.cells[-1].text)
+                if dict_variables[row.cells[0].text] == 'penalty':
+                    self.penalty = str(round(float(row.cells[-1].text) / 100.0, 2))
+                elif dict_variables[row.cells[0].text] == 'shuffle_answer':
+                    print(row.cells[-1].text)
+                    if 'Да' in row.cells[-1].text:
+                        self.shuffle_answer = True
+                    else:
+                        self.shuffle_answer = False
+                else:
+                    setattr(self, dict_variables[row.cells[0].text], row.cells[-1].text)
 
         # Find end on answers
         # Indication: first cell in row is empty (in other rows first row is style of numering (A, B, C))
@@ -385,7 +389,9 @@ class MultiplyChoiceQuestion(Question):
                 if 'is_always_correct' in source.keys():
                     self.is_always_correct = self.__converter_to_bool(source['is_always_correct'])
                 if 'preserve_order' in source.keys():
-                    self.preserve_order = self.__converter_to_bool(source['preserve_order'])
+                    self.shuffle_answer = self.__converter_to_bool(source['preserve_order'])
+                if 'sample_size' in source.keys():
+                    self.sample_size = (source['sample_size'])
 
                 if source['is_html_enabled']:
                     format_of_answers = 'html'
@@ -414,7 +420,7 @@ class MultiplyChoiceQuestion(Question):
         if 'id' in parsed_file.keys():
             self.question_id = parsed_file['id']
         if 'has_review' in parsed_file.keys():
-            self.has_review = parsed_file['has_review']
+            self.has_review = self.__converter_to_bool(parsed_file['has_review'])
         if 'time' in parsed_file.keys():
             self.creation_time = parsed_file['time']
 
@@ -496,7 +502,7 @@ class MultiplyChoiceQuestion(Question):
             self.question_text['format'] = 'text'
 
         if self.is_correct(question_info['points_possible']):
-            self.weight = question_info['points_possible']
+            self.weight = float(question_info['points_possible'])
 
         if self.is_correct(question_info['correct_comments']):
             self.corrected_feedback['text'] = question_info['correct_comments']
@@ -540,6 +546,6 @@ class MultiplyChoiceQuestion(Question):
                     option.feedback['text'] = answer['comments_html']
                     option.feedback['format'] = 'html'
                 if self.is_correct(answer['weight']):
-                    option.points = answer['weight']
+                    option.points = float(answer['weight'])
                 self.options.append(option)
 

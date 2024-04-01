@@ -5,6 +5,9 @@ import sys
 
 
 def main():
+    # Default install all libraries to work with them
+    os.system("pip install -r requirements.txt")
+
     """Run administrative tasks."""
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "web_ltiformater.settings")
     try:
