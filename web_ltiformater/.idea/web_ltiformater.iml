@@ -18,6 +18,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jquery-3.3.1" level="application" />
   </component>
+  <component name="PackageRequirementsSettings">
+    <option name="keepMatchingSpecifier" value="false" />
+  </component>
   <component name="PyDocumentationSettings">
     <option name="format" value="PLAIN" />
     <option name="myDocStringFormat" value="Plain" />

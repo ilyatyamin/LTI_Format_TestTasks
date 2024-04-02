@@ -40,10 +40,14 @@ def send_form_postrequest(request):
 
                 # Process question
                 question = wsgi.manager.process_file_based_question(uploaded_file_path, type_of_param, type_to)
-                settings.LATEST_FILE = uploaded_file_path
 
                 # Write to the file. In the future, user can save it by pressing button
-                wsgi.manager.write_to_file(make_an_new_file(settings.LATEST_FILE, wsgi.manager.get_format(type_to)), question)
+                if type_to == int(ConversionFormat.MultipleChoiceStepikStep) and isinstance(question, list):
+                    wsgi.manager.write_to_archive(make_an_new_file(settings.LATEST_FILE, 'zip'), question,
+                                                  wsgi.manager.get_format(type_to))
+                else:
+                    wsgi.manager.write_to_file(make_an_new_file(settings.LATEST_FILE, wsgi.manager.get_format(type_to)),
+                                               question)
             else:
                 # This is the questions with API processing
                 # So, we need to get course_id and quiz_id from the form.

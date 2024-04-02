@@ -12,7 +12,7 @@ class PlatformsMultipleChoice:
     Multiplatform manager. This manager is controlling all the managers that convert LTI format to another platform's format
     """
 
-    def parse_questions(self, parsed_question: Question | list, type_of_question) -> str:
+    def parse_questions(self, parsed_question: Question | list, type_of_question) -> str | list[str]:
         """Returns a string-representation of parsed question (LTI) in format of any platform (in dependent of type_of_question param) """
         if type_of_question == int(ConversionFormat.MultipleChoiceMoodleXML):
             moodle_xml_formatter = MoodleXMLQuestion()
@@ -28,7 +28,7 @@ class PlatformsMultipleChoice:
             if isinstance(parsed_question, Question):
                 return stepik_formatter.parse_one_question(parsed_question, ConversionFormat.MultipleChoiceStepikStep)
             elif isinstance(parsed_question, list):
-                raise Exception('Now is available only 1 question. In development')  # TODO
+                return stepik_formatter.parse_questions(parsed_question, ConversionFormat.MultipleChoiceStepikStep)
             else:
                 raise Exception("You submit incorrect file. Error in PlatformsMultipleChoice.parse_questions")
         elif type_of_question == int(ConversionFormat.CanvasInstructure):

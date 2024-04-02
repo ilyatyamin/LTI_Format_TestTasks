@@ -230,9 +230,9 @@ class MultiplyChoiceQuestion(Question):
 
                     # Checking is it correct?
                     if chr(letter_idx) in answers:
-                        option.is_correct = 1
+                        option.is_correct = True
                     else:
-                        option.is_correct = 0
+                        option.is_correct = False
                     self.options.append(option)
 
             # Checking answer_numbering
@@ -326,9 +326,9 @@ class MultiplyChoiceQuestion(Question):
             option.feedback['format'] = 'text'
             option.points = need_table.rows[idx].cells[3].text
             if option.points != "0":
-                option.is_correct = "1"
+                option.is_correct = True
             else:
-                option.is_correct = "0"
+                option.is_correct = False
             self.options.append(option)
 
         for ind in range(end_of_answers, len(need_table.rows) - 1):

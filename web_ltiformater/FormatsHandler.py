@@ -1,4 +1,5 @@
 import json
+import zipfile
 import xml.etree.ElementTree as ElTree
 from docx import Document
 
@@ -99,6 +100,19 @@ class FormatsHandler:
             f.write(obj)
         f.truncate()
         f.close()
+
+    def write_to_archive(self, name_of_file: str, obj: list[str], format_writing: str):
+        """
+        Creates an archive in the name_of_file path.
+        In this archive writes files in questions, one question for one file.
+        """
+        i = 0
+        with zipfile.ZipFile(name_of_file, 'w') as zipf:
+            # Добавляем каждый файл в архив
+            for file in obj:
+                zipf.writestr(f'question_{i}.{format_writing}', file)
+                i += 1
+
 
 
 class Manager:

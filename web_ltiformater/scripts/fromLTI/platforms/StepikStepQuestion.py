@@ -6,8 +6,6 @@ from scripts.toLTI.conversion_formats import ConversionFormat
 
 
 class StepikStepQuestion(AbstractPlatformQuestion):
-    def parse_questions(self, parsed_questions: list, type_of_question: ConversionFormat):
-        pass
 
     def parse_one_question(self, parsed_question: MultipleChoiceQuestion, type_of_question: ConversionFormat) -> str:
         if type_of_question == ConversionFormat.MultipleChoiceStepikStep:
@@ -91,3 +89,10 @@ class StepikStepQuestion(AbstractPlatformQuestion):
                 file['block']['source']['options'] = options
 
             return json.dumps(file, ensure_ascii=False, indent=4)
+
+    def parse_questions(self, parsed_questions: list, type_of_question: ConversionFormat):
+        results = []
+        if type_of_question == ConversionFormat.MultipleChoiceStepikStep:
+            for question in parsed_questions:
+                results.append(self.parse_one_question(question, type_of_question))
+        return results
